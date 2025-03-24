@@ -1,0 +1,60 @@
+End Goal:
+Train unet on GT data
+Train unet on Gaussian data
+
+Compare!!!
+waaaaaaa
+
+
+gt:
+6960 x 4640
+
+render:
+5632 x 9984
+
+
+
+
+16,000 x 8092 ~2x the size of mine
+276 images of size 600x600
+
+h = 2w
+k = ?
+
+(16000/k * 8092/k) = 276
+
+k ~= 684
+
+h = 23.39
+w = 11.83
+
+(13567/k * 6548/k) = 276
+
+k ~=567
+
+5% overlap
+
+k = size * 0.95
+
+10,000 images
+30,000 crops
+
+
+
+
+Image should be around 512x512
+which would make:
+w = 5632/512 = 11
+h = 9984/512 = 19
+a = 11*19 = 209
+
+
+
+https://github.com/milesial/Pytorch-UNet/issues/317
+DELETEE GLOB
+
+TOdo:
+Try traditional loss function
+Check model checkpoint save/loading
+Implement accuracy / recall metrics on validation/train dataset
+Use Data Augmentation
