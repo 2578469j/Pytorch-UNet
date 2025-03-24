@@ -18,10 +18,16 @@ def compute_local_variance(image, patch_size):
     variance = mean_sq - mean**2
     return variance
 
+def compute_global_variance(image):
+    mean = image.mean(dim=(-1, -2), keepdim=True)  # Mean over H and W
+    mean_sq = (image ** 2).mean(dim=(-1, -2), keepdim=True)  # Mean of squares
+    variance = mean_sq - mean ** 2
+    return variance
+
 def compute_weight_map(variance_map, bias=1e-4):
     weight_map = variance_map + bias
     # Normalize across spatial dimensions
-    weight_map_sum = weight_map.sum(dim=(2, 3), keepdim=True)
+    weight_map_sum = weight_map.sum(dim=(-1, -2), keepdim=True)
     weight_map = weight_map / (weight_map_sum + bias)
     return weight_map
 
@@ -42,6 +48,19 @@ class WeightedBinaryCrossEntropyLoss(nn.Module):
     def forward(self, images, logits, target):
         grayscale = rgb_to_grayscale(images)
         variance_map = compute_local_variance(grayscale, self.patch_size)
+        weight_map = compute_weight_map(variance_map, self.bias)
+        binary_loss = weighted_bce_loss(logits, target, weight_map, self.eps)
+        return binary_loss
+    
+class WeightedBinaryCrossEntropyLossGlobal(nn.Module):
+    def __init__(self, bce_eps=1e-4, variance_bias=1e-4):
+        super().__init__()
+        self.eps = bce_eps
+        self.bias = variance_bias
+
+    def forward(self, images, logits, target):
+        grayscale = rgb_to_grayscale(images)
+        variance_map = compute_global_variance(grayscale)
         weight_map = compute_weight_map(variance_map, self.bias)
         binary_loss = weighted_bce_loss(logits, target, weight_map, self.eps)
         return binary_loss

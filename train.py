@@ -16,9 +16,12 @@ from tqdm import tqdm
 import wandb
 from evaluate import evaluate
 from unet import UNet
-from unet.loss import WeightedBinaryCrossEntropyLoss
+from unet.loss import WeightedBinaryCrossEntropyLoss, WeightedBinaryCrossEntropyLossGlobal
 from utils.data_loading import BasicDataset, CarvanaDataset, GemsyDataset
 from utils.dice_score import dice_loss
+
+import albumentations as A
+from albumentations.pytorch import ToTensorV2
 
 #dir_img = Path('./data/imgs/')
 #dir_img = Path("C:\\Users\\Admin\\Desktop\\Gemsy\\Data\\processed\\.in\\features\\")
@@ -45,10 +48,24 @@ def train_model(
         momentum: float = 0.999,
         gradient_clipping: float = 1.0,
 ):
+    
+    # 0. Define Augmentation
+    training_augmentation = A.Compose([
+            A.HorizontalFlip(p=0.5),
+            A.VerticalFlip(p=0.5),
+            A.RandomRotate90(p=0.5),
+            A.ShiftScaleRotate(shift_limit=0.05, scale_limit=0.05, rotate_limit=15, p=0.5),
+          #  A.RandomBrightnessContrast(p=0.2),
+            A.ElasticTransform(p=0.2),
+          #  A.GaussNoise(p=0.2),
+           # A.Normalize(),
+            ToTensorV2()
+        ])
+    
     # 1. Create dataset
     try:
         #dataset = CarvanaDataset(dir_img, dir_mask, img_scale)
-        dataset = GemsyDataset(dir_img, dir_mask, img_scale)
+        dataset = GemsyDataset(dir_img, dir_mask, img_scale, transform=training_augmentation)
     except (AssertionError, RuntimeError, IndexError):
         dataset = BasicDataset(dir_img, dir_mask, img_scale)
 
@@ -87,14 +104,20 @@ def train_model(
                               lr=learning_rate, weight_decay=weight_decay, momentum=momentum, foreach=True)
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'max', patience=5)  # goal: maximize Dice score
     grad_scaler = torch.cuda.amp.GradScaler(enabled=amp)
-    criterion = nn.CrossEntropyLoss() if model.n_classes > 1 else nn.BCEWithLogitsLoss()
+    #criterion = nn.CrossEntropyLoss() if model.n_classes > 1 else nn.BCEWithLogitsLoss()
     #criterion = WeightedBinaryCrossEntropyLoss(patch_size=11)
+    criterion = WeightedBinaryCrossEntropyLossGlobal()
     global_step = 0
 
     # 5. Begin training
     for epoch in range(1, epochs + 1):
         model.train()
         epoch_loss = 0
+        epoch_TP = 0
+        epoch_FP = 0
+        epoch_FN = 0
+        epoch_defected = 0
+        epoch_non_defected = 0
         with tqdm(total=n_train, desc=f'Epoch {epoch}/{epochs}', unit='img') as pbar:
             for batch in train_loader:
                 images, true_masks = batch['image'], batch['mask']
@@ -111,10 +134,21 @@ def train_model(
                     masks_pred = model(images)
                     if model.n_classes == 1:
                         #loss = criterion(images, masks_pred.squeeze(1), true_masks.float())
-                        loss = criterion(masks_pred.squeeze(1), true_masks.float())
-                        loss += dice_loss(F.sigmoid(masks_pred.squeeze(1)), true_masks.float(), multiclass=False)
+                        #loss = criterion(masks_pred.squeeze(1), true_masks.float())
+                        #loss += dice_loss(F.sigmoid(masks_pred.squeeze(1)), true_masks.float(), multiclass=False)
+                        loss = dice_loss(F.sigmoid(masks_pred.squeeze(1)), true_masks.float(), multiclass=False)
                         if torch.any(loss.isnan()) == True:
                             print("BAD TRAIN")
+                    
+                        pred_defects = torch.any((F.sigmoid(masks_pred) > 0.5).float().squeeze(1), (1,2))
+                        true_defects = torch.any(true_masks, (1,2))
+
+                        epoch_defected += torch.sum(true_defects).item()
+                        epoch_non_defected += torch.sum(torch.logical_not(true_defects)).item()
+
+                        epoch_TP += torch.sum(torch.logical_and(pred_defects, true_defects)).item()
+                        epoch_FP += torch.sum(torch.logical_and(pred_defects, torch.logical_not(true_defects))).item()
+                        epoch_FN += torch.sum(torch.logical_and(torch.logical_not(pred_defects), true_defects)).item()
                     else:
                         loss = criterion(masks_pred, true_masks)
                         loss += dice_loss(
@@ -133,10 +167,18 @@ def train_model(
                 pbar.update(images.shape[0])
                 global_step += 1
                 epoch_loss += loss.item()
+                epsilon = 1e-4
+                epoch_train_recall = epoch_TP / (epoch_TP+epoch_FN+epsilon)
+                epoch_train_accuracy = epoch_TP / (epoch_TP+epoch_FP+epsilon)
+                epoch_defected_rate = epoch_defected / (epoch_non_defected+epsilon)
+
                 experiment.log({
                     'train loss': loss.item(),
                     'step': global_step,
-                    'epoch': epoch
+                    'epoch': epoch,
+                    'epoch train recall': epoch_train_recall,
+                    'epoch train accuracy': epoch_train_accuracy,
+                    'epoch train defected rate': epoch_defected_rate,
                 })
                 pbar.set_postfix(**{'loss (batch)': loss.item()})
 
@@ -152,7 +194,7 @@ def train_model(
                             if not (torch.isinf(value.grad) | torch.isnan(value.grad)).any():
                                 histograms['Gradients/' + tag] = wandb.Histogram(value.grad.data.cpu())
 
-                        val_score = evaluate(model, val_loader, device, amp)
+                        val_score, val_recall, val_accuracy, defected_rate = evaluate(model, val_loader, device, amp)
                         scheduler.step(val_score)
 
                         logging.info('Validation Dice score: {}'.format(val_score))
@@ -160,6 +202,9 @@ def train_model(
                             experiment.log({
                                 'learning rate': optimizer.param_groups[0]['lr'],
                                 'validation Dice': val_score,
+                                'validation Recall': val_recall,
+                                'validation_Accuraccy': val_accuracy,
+                                'validation_Defected_Rate': defected_rate,
                                 'images': wandb.Image(images[0].cpu()),
                                 'masks': {
                                     'true': wandb.Image(true_masks[0].float().cpu()),
@@ -183,10 +228,10 @@ def train_model(
 def get_args():
     parser = argparse.ArgumentParser(description='Train the UNet on images and target masks')
     parser.add_argument('--epochs', '-e', metavar='E', type=int, default=5, help='Number of epochs')
-    parser.add_argument('--batch-size', '-b', dest='batch_size', metavar='B', type=int, default=4, help='Batch size')
+    parser.add_argument('--batch-size', '-b', dest='batch_size', metavar='B', type=int, default=16, help='Batch size')
     parser.add_argument('--learning-rate', '-l', metavar='LR', type=float, default=5e-6, #5e-6,
                         help='Learning rate', dest='lr')
-    parser.add_argument('--weight_decay', '-wd', metavar='WD', type=float, default=1e-8, 
+    parser.add_argument('--weight_decay', '-wd', metavar='WD', type=float, default=1e-9,#1e-8, 
                         help='Weight Decay', dest='wd')
     parser.add_argument('--momentum', '-m', metavar='M', type=float, default=0.999, 
                         help='Momentum', dest='m')

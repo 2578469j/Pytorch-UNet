@@ -208,13 +208,15 @@ class CarvanaDataset(BasicDataset):
     def __init__(self, images_dir, mask_dir, scale=1):
         super().__init__(images_dir, mask_dir, scale, mask_suffix='_mask')
 
-class GemsyDataset():
-    def __init__(self, images_dir: str, mask_dir: str, scale: float = 1.0, mask_suffix: str = ''):
+class GemsyDataset(Dataset):
+    def __init__(self, images_dir: str, mask_dir: str, scale: float = 1.0, mask_suffix: str = '', transform=None):
         self.images_dir = Path(images_dir)
         self.mask_dir = Path(mask_dir)
         assert 0 < scale <= 1, 'Scale must be between 0 and 1'
         self.scale = scale
         self.mask_suffix = mask_suffix
+
+        self.transform = transform
 
         self.split_loader = GemsySplitLoader(self.images_dir, self.mask_dir)
 
@@ -324,7 +326,18 @@ class GemsyDataset():
         img = self.preprocess(self.mask_values, img, self.scale, is_mask=False)
         mask = self.preprocess(self.mask_values, mask, self.scale, is_mask=True)
 
+        if self.transform:
+            img = img.transpose(1, 2, 0).astype(np.float32)
+            mask = mask.astype(np.uint8)
+
+            augmented = self.transform(image=img, mask=mask)
+            img = augmented['image'].float().contiguous()
+            mask = augmented['mask'].long().contiguous()
+        else:
+            img = torch.as_tensor(img.copy()).float().contiguous()
+            mask = torch.as_tensor(mask.copy()).long().contiguous()
+
         return {
-            'image': torch.as_tensor(img.copy()).float().contiguous(),
-            'mask': torch.as_tensor(mask.copy()).long().contiguous()
+            'image': img,
+            'mask': mask,
         }

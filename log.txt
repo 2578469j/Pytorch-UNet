@@ -468,3 +468,796 @@ INFO: Starting training:
         Mixed Precision: False
     
 INFO: Validation Dice score: 0.19154584407806396
+INFO: Validation Dice score: 0.608197808265686
+INFO: Validation Dice score: 0.6057783365249634
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 1 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 2 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 3 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 4 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      4
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      4
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Validation Dice score: 0.009038343094289303
+INFO: Validation Dice score: 0.5219995379447937
+INFO: Validation Dice score: 0.5865384936332703
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 1 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 2 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      4
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      4
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Validation Dice score: 0.00910878274589777
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 1 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      4
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Validation Dice score: 0.05456383153796196
+INFO: Validation Dice score: 0.07247890532016754
+INFO: Validation Dice score: 0.005029342602938414
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 1 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      4
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Validation Dice score: 0.00901428796350956
+INFO: Validation Dice score: 0.6875
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 1 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 2 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 3 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 4 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 5 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 6 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 7 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 8 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 9 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 10 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 11 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 12 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 13 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 14 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 15 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 16 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 17 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 18 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 19 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 20 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 21 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      4
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Validation Dice score: 0.009041748009622097
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 1 saved!
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Checkpoint 2 saved!
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      4
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.7379807829856873
+INFO: Validation Dice score: 0.2034277468919754
+INFO: Validation Dice score: 0.26748618483543396
+INFO: Checkpoint 1 saved!
+INFO: Validation Dice score: 0.009645077399909496
+INFO: Validation Dice score: 0.011768943630158901
+INFO: Validation Dice score: 0.01081638690084219
+INFO: Validation Dice score: 0.009962670505046844
+INFO: Validation Dice score: 0.011887021362781525
+INFO: Checkpoint 2 saved!
+INFO: Validation Dice score: 0.009734325110912323
+INFO: Validation Dice score: 0.012290656566619873
+INFO: Validation Dice score: 0.011828029528260231
+INFO: Validation Dice score: 0.010609550401568413
+INFO: Validation Dice score: 0.009198764339089394
+INFO: Checkpoint 3 saved!
+INFO: Validation Dice score: 0.011022557504475117
+INFO: Validation Dice score: 0.009544202126562595
+INFO: Validation Dice score: 0.010936887934803963
+INFO: Validation Dice score: 0.009483459405601025
+INFO: Validation Dice score: 0.00951608270406723
+INFO: Checkpoint 4 saved!
+INFO: Validation Dice score: 0.009908883832395077
+INFO: Validation Dice score: 0.01401831116527319
+INFO: Validation Dice score: 0.01078320387750864
+INFO: Validation Dice score: 0.010168297216296196
+INFO: Validation Dice score: 0.009983094409108162
+INFO: Checkpoint 5 saved!
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      16
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Validation Dice score: 0.00903367530554533
+INFO: Validation Dice score: 0.010303043760359287
+INFO: Validation Dice score: 0.00915507972240448
+INFO: Validation Dice score: 0.010226589627563953
+INFO: Validation Dice score: 0.009353825822472572
+INFO: Checkpoint 1 saved!
+INFO: Validation Dice score: 0.010455220006406307
+INFO: Validation Dice score: 0.01020883210003376
+INFO: Validation Dice score: 0.010492916218936443
+INFO: Validation Dice score: 0.01064357627183199
+INFO: Validation Dice score: 0.010014636442065239
+INFO: Checkpoint 2 saved!
+INFO: Validation Dice score: 0.011121436953544617
+INFO: Validation Dice score: 0.009234501048922539
+INFO: Validation Dice score: 0.009788093157112598
+INFO: Validation Dice score: 0.0103006511926651
+INFO: Validation Dice score: 0.010287581011652946
+INFO: Checkpoint 3 saved!
+INFO: Validation Dice score: 0.010403799824416637
+INFO: Validation Dice score: 0.008420166559517384
+INFO: Validation Dice score: 0.010686362162232399
+INFO: Validation Dice score: 0.009617898613214493
+INFO: Validation Dice score: 0.01082858256995678
+INFO: Checkpoint 4 saved!
+INFO: Validation Dice score: 0.010189661756157875
+INFO: Validation Dice score: 0.010680886916816235
+INFO: Validation Dice score: 0.010664445348083973
+INFO: Validation Dice score: 0.010062853805720806
+INFO: Validation Dice score: 0.00993824191391468
+INFO: Checkpoint 5 saved!
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      64
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      64
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      64
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      64
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      64
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      64
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      64
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      64
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      64
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      64
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      64
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      64
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      64
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      64
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      16
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      32
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      32
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      16
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 4179 examples
+INFO: Scanning mask files to determine unique values
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          5
+        Batch size:      16
+        Learning rate:   5e-06
+        Training size:   3762
+        Validation size: 417
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Validation Dice score: 0.008745881728827953
+INFO: Validation Dice score: 0.0015047042397782207
