@@ -28,10 +28,10 @@ def compute_weight_map(variance_map, bias=1e-4):
     weight_map = variance_map + bias
     # Normalize across spatial dimensions
     weight_map_sum = weight_map.sum(dim=(-1, -2), keepdim=True)
-    weight_map = weight_map / (weight_map_sum + bias)
+    weight_map = weight_map / weight_map_sum
     return weight_map
 
-def weighted_bce_loss(logits, ground_truth, weight_map, eps=1e-4):
+def weighted_bce_loss(logits, ground_truth, weight_map, eps=1e-8):
     prediction = F.sigmoid(logits)
     prediction = torch.clamp(prediction, eps, 1 - eps)  # Avoid log(0)
     loss = - (ground_truth * torch.log(prediction) + (1 - ground_truth) * torch.log(1 - prediction))
@@ -39,7 +39,7 @@ def weighted_bce_loss(logits, ground_truth, weight_map, eps=1e-4):
     return weighted_loss
 
 class WeightedBinaryCrossEntropyLoss(nn.Module):
-    def __init__(self, bce_eps=1e-4, variance_bias=1e-4, patch_size=11):
+    def __init__(self, bce_eps=1e-8, variance_bias=1e-4, patch_size=11): #variance_bias=1e-8 poroduces nans
         super().__init__()
         self.eps = bce_eps
         self.bias = variance_bias
@@ -53,7 +53,7 @@ class WeightedBinaryCrossEntropyLoss(nn.Module):
         return binary_loss
     
 class WeightedBinaryCrossEntropyLossGlobal(nn.Module):
-    def __init__(self, bce_eps=1e-4, variance_bias=1e-4):
+    def __init__(self, bce_eps=1e-8, variance_bias=1e-4):
         super().__init__()
         self.eps = bce_eps
         self.bias = variance_bias
