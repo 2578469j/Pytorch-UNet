@@ -3198,3 +3198,1055 @@ INFO: Starting training:
 INFO: Validation Dice score: 0.1979166716337204
 INFO: Validation Dice score: 0.173611119389534
 INFO: Validation Dice score: 0.1944444477558136
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Validation Dice score: 0.173611119389534
+INFO: Validation Dice score: 0.1388888955116272
+INFO: Validation Dice score: 0.1875
+INFO: Validation Dice score: 0.1840277761220932
+INFO: Validation Dice score: 0.1909722238779068
+INFO: Checkpoint 1 saved!
+INFO: Validation Dice score: 0.1840277761220932
+INFO: Validation Dice score: 0.1319444477558136
+INFO: Validation Dice score: 0.2291666716337204
+INFO: Validation Dice score: 0.1875
+INFO: Validation Dice score: 0.21875
+INFO: Checkpoint 2 saved!
+INFO: Validation Dice score: 0.2118055522441864
+INFO: Validation Dice score: 0.1701388955116272
+INFO: Validation Dice score: 0.1493055522441864
+INFO: Validation Dice score: 0.2152777761220932
+INFO: Validation Dice score: 0.1631944477558136
+INFO: Checkpoint 3 saved!
+INFO: Validation Dice score: 0.1701388955116272
+INFO: Validation Dice score: 0.1666666716337204
+INFO: Validation Dice score: 0.1356050670146942
+INFO: Validation Dice score: 0.1666666716337204
+INFO: Validation Dice score: 0.2118055522441864
+INFO: Checkpoint 4 saved!
+INFO: Validation Dice score: 0.2013888955116272
+INFO: Validation Dice score: 0.1493055522441864
+INFO: Validation Dice score: 0.2013888955116272
+INFO: Validation Dice score: 0.1805555522441864
+INFO: Validation Dice score: 0.21875
+INFO: Checkpoint 5 saved!
+INFO: Validation Dice score: 0.2013888955116272
+INFO: Validation Dice score: 0.2083333283662796
+INFO: Validation Dice score: 0.1666666716337204
+INFO: Validation Dice score: 0.14661331474781036
+INFO: Validation Dice score: 0.204861119389534
+INFO: Checkpoint 6 saved!
+INFO: Validation Dice score: 0.1875
+INFO: Validation Dice score: 0.1875
+INFO: Validation Dice score: 0.15802229940891266
+INFO: Validation Dice score: 0.218319371342659
+INFO: Validation Dice score: 0.1984786093235016
+INFO: Checkpoint 7 saved!
+INFO: Validation Dice score: 0.18056070804595947
+INFO: Validation Dice score: 0.16879813373088837
+INFO: Validation Dice score: 0.2152777761220932
+INFO: Validation Dice score: 0.14981260895729065
+INFO: Validation Dice score: 0.18339183926582336
+INFO: Checkpoint 8 saved!
+INFO: Validation Dice score: 0.1840277761220932
+INFO: Validation Dice score: 0.1909722238779068
+INFO: Validation Dice score: 0.21856223046779633
+INFO: Validation Dice score: 0.18202295899391174
+INFO: Validation Dice score: 0.15305180847644806
+INFO: Checkpoint 9 saved!
+INFO: Validation Dice score: 0.18451224267482758
+INFO: Validation Dice score: 0.15278735756874084
+INFO: Validation Dice score: 0.1770833283662796
+INFO: Validation Dice score: 0.24144141376018524
+INFO: Validation Dice score: 0.1656573861837387
+INFO: Checkpoint 10 saved!
+INFO: Validation Dice score: 0.1847771853208542
+INFO: Validation Dice score: 0.35155701637268066
+INFO: Validation Dice score: 0.20754314959049225
+INFO: Validation Dice score: 0.2400936633348465
+INFO: Validation Dice score: 0.20539332926273346
+INFO: Checkpoint 11 saved!
+INFO: Validation Dice score: 0.24688778817653656
+INFO: Validation Dice score: 0.23991574347019196
+INFO: Validation Dice score: 0.13195832073688507
+INFO: Validation Dice score: 0.1771070510149002
+INFO: Validation Dice score: 0.15678231418132782
+INFO: Checkpoint 12 saved!
+INFO: Validation Dice score: 0.18738867342472076
+INFO: Validation Dice score: 0.2536356449127197
+INFO: Validation Dice score: 0.25813376903533936
+INFO: Validation Dice score: 0.3222728669643402
+INFO: Validation Dice score: 0.30807775259017944
+INFO: Checkpoint 13 saved!
+INFO: Validation Dice score: 0.2933422029018402
+INFO: Validation Dice score: 0.29687026143074036
+INFO: Validation Dice score: 0.3081103563308716
+INFO: Validation Dice score: 0.32389402389526367
+INFO: Validation Dice score: 0.3059396743774414
+INFO: Checkpoint 14 saved!
+INFO: Validation Dice score: 0.2831130921840668
+INFO: Validation Dice score: 0.45329973101615906
+INFO: Validation Dice score: 0.22324419021606445
+INFO: Validation Dice score: 0.3590506613254547
+INFO: Validation Dice score: 0.18295450508594513
+INFO: Checkpoint 15 saved!
+INFO: Validation Dice score: 0.40204158425331116
+INFO: Validation Dice score: 0.37376874685287476
+INFO: Validation Dice score: 0.3668879270553589
+INFO: Validation Dice score: 0.33581072092056274
+INFO: Validation Dice score: 0.36012133955955505
+INFO: Checkpoint 16 saved!
+INFO: Validation Dice score: 0.154884472489357
+INFO: Validation Dice score: 0.24861060082912445
+INFO: Validation Dice score: 0.24192611873149872
+INFO: Validation Dice score: 0.16944581270217896
+INFO: Validation Dice score: 0.42446228861808777
+INFO: Checkpoint 17 saved!
+INFO: Validation Dice score: 0.3234310746192932
+INFO: Validation Dice score: 0.29857584834098816
+INFO: Validation Dice score: 0.25626033544540405
+INFO: Validation Dice score: 0.1979125589132309
+INFO: Validation Dice score: 0.26762062311172485
+INFO: Checkpoint 18 saved!
+INFO: Validation Dice score: 0.39861392974853516
+INFO: Validation Dice score: 0.3225540518760681
+INFO: Validation Dice score: 0.3024498522281647
+INFO: Validation Dice score: 0.2958953082561493
+INFO: Validation Dice score: 0.22626715898513794
+INFO: Checkpoint 19 saved!
+INFO: Validation Dice score: 0.24655014276504517
+INFO: Validation Dice score: 0.3180474042892456
+INFO: Validation Dice score: 0.23536844551563263
+INFO: Validation Dice score: 0.3113994598388672
+INFO: Validation Dice score: 0.24974948167800903
+INFO: Checkpoint 20 saved!
+INFO: Validation Dice score: 0.23729750514030457
+INFO: Validation Dice score: 0.22206677496433258
+INFO: Validation Dice score: 0.3854297697544098
+INFO: Validation Dice score: 0.35654082894325256
+INFO: Validation Dice score: 0.2167317122220993
+INFO: Checkpoint 21 saved!
+INFO: Validation Dice score: 0.18444378674030304
+INFO: Validation Dice score: 0.1964077651500702
+INFO: Validation Dice score: 0.263918399810791
+INFO: Validation Dice score: 0.16434408724308014
+INFO: Validation Dice score: 0.2015630453824997
+INFO: Checkpoint 22 saved!
+INFO: Validation Dice score: 0.19980552792549133
+INFO: Validation Dice score: 0.31428009271621704
+INFO: Validation Dice score: 0.14815036952495575
+INFO: Validation Dice score: 0.25520268082618713
+INFO: Validation Dice score: 0.21825818717479706
+INFO: Checkpoint 23 saved!
+INFO: Validation Dice score: 0.26635506749153137
+INFO: Validation Dice score: 0.18467797338962555
+INFO: Validation Dice score: 0.3522678315639496
+INFO: Validation Dice score: 0.29255759716033936
+INFO: Validation Dice score: 0.16457268595695496
+INFO: Checkpoint 24 saved!
+INFO: Validation Dice score: 0.16751636564731598
+INFO: Validation Dice score: 0.18743516504764557
+INFO: Validation Dice score: 0.13480794429779053
+INFO: Validation Dice score: 0.23754411935806274
+INFO: Validation Dice score: 0.21130061149597168
+INFO: Checkpoint 25 saved!
+INFO: Validation Dice score: 0.20166830718517303
+INFO: Validation Dice score: 0.3518596291542053
+INFO: Validation Dice score: 0.14291159808635712
+INFO: Validation Dice score: 0.283442884683609
+INFO: Validation Dice score: 0.2949414849281311
+INFO: Checkpoint 26 saved!
+INFO: Validation Dice score: 0.18748824298381805
+INFO: Validation Dice score: 0.15625379979610443
+INFO: Validation Dice score: 0.16648221015930176
+INFO: Validation Dice score: 0.34253859519958496
+INFO: Validation Dice score: 0.2593439221382141
+INFO: Checkpoint 27 saved!
+INFO: Validation Dice score: 0.2892376184463501
+INFO: Validation Dice score: 0.34525540471076965
+INFO: Validation Dice score: 0.15065009891986847
+INFO: Validation Dice score: 0.180463507771492
+INFO: Validation Dice score: 0.2206633985042572
+INFO: Checkpoint 28 saved!
+INFO: Validation Dice score: 0.18007612228393555
+INFO: Validation Dice score: 0.14875851571559906
+INFO: Validation Dice score: 0.3862592279911041
+INFO: Validation Dice score: 0.16073346138000488
+INFO: Validation Dice score: 0.3178488612174988
+INFO: Checkpoint 29 saved!
+INFO: Validation Dice score: 0.18968559801578522
+INFO: Validation Dice score: 0.24524614214897156
+INFO: Validation Dice score: 0.12514467537403107
+INFO: Validation Dice score: 0.250095009803772
+INFO: Validation Dice score: 0.2485906332731247
+INFO: Checkpoint 30 saved!
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Validation Dice score: 0.2013888955116272
+INFO: Validation Dice score: 0.2118055522441864
+INFO: Validation Dice score: 0.1701388955116272
+INFO: Validation Dice score: 0.1701388955116272
+INFO: Validation Dice score: 0.1944444477558136
+INFO: Checkpoint 1 saved!
+INFO: Validation Dice score: 0.2013888955116272
+INFO: Validation Dice score: 0.1701388955116272
+INFO: Validation Dice score: 0.1875
+INFO: Validation Dice score: 0.1631944477558136
+INFO: Validation Dice score: 0.1944444477558136
+INFO: Checkpoint 2 saved!
+INFO: Validation Dice score: 0.1805555522441864
+INFO: Validation Dice score: 0.2013888955116272
+INFO: Validation Dice score: 0.1805555522441864
+INFO: Validation Dice score: 0.2083333283662796
+INFO: Validation Dice score: 0.1805555522441864
+INFO: Checkpoint 3 saved!
+INFO: Validation Dice score: 0.1805555522441864
+INFO: Validation Dice score: 0.1805555522441864
+INFO: Validation Dice score: 0.1979166716337204
+INFO: Validation Dice score: 0.1666666716337204
+INFO: Validation Dice score: 0.1458333283662796
+INFO: Checkpoint 4 saved!
+INFO: Validation Dice score: 0.1770833283662796
+INFO: Validation Dice score: 0.2222222238779068
+INFO: Validation Dice score: 0.21875
+INFO: Validation Dice score: 0.204861119389534
+INFO: Validation Dice score: 0.17617899179458618
+INFO: Checkpoint 5 saved!
+INFO: Validation Dice score: 0.2326388955116272
+INFO: Validation Dice score: 0.1631944477558136
+INFO: Validation Dice score: 0.1597222238779068
+INFO: Validation Dice score: 0.1840277761220932
+INFO: Validation Dice score: 0.173611119389534
+INFO: Checkpoint 6 saved!
+INFO: Validation Dice score: 0.1840277761220932
+INFO: Validation Dice score: 0.16024473309516907
+INFO: Validation Dice score: 0.214834526181221
+INFO: Validation Dice score: 0.1909722238779068
+INFO: Validation Dice score: 0.1713089644908905
+INFO: Checkpoint 7 saved!
+INFO: Validation Dice score: 0.2743055522441864
+INFO: Validation Dice score: 0.16684111952781677
+INFO: Validation Dice score: 0.21520650386810303
+INFO: Validation Dice score: 0.1388888955116272
+INFO: Validation Dice score: 0.12246618419885635
+INFO: Checkpoint 8 saved!
+INFO: Validation Dice score: 0.15467461943626404
+INFO: Validation Dice score: 0.23175430297851562
+INFO: Validation Dice score: 0.2319173514842987
+INFO: Validation Dice score: 0.24932681024074554
+INFO: Validation Dice score: 0.1770833283662796
+INFO: Checkpoint 9 saved!
+INFO: Validation Dice score: 0.173611119389534
+INFO: Validation Dice score: 0.14728999137878418
+INFO: Validation Dice score: 0.18219125270843506
+INFO: Validation Dice score: 0.2083333283662796
+INFO: Validation Dice score: 0.18106666207313538
+INFO: Checkpoint 10 saved!
+INFO: Validation Dice score: 0.18429549038410187
+INFO: Validation Dice score: 0.20023925602436066
+INFO: Validation Dice score: 0.1528170108795166
+INFO: Validation Dice score: 0.1313580870628357
+INFO: Validation Dice score: 0.1597222238779068
+INFO: Checkpoint 11 saved!
+INFO: Validation Dice score: 0.1954578310251236
+INFO: Validation Dice score: 0.17714834213256836
+INFO: Validation Dice score: 0.2020779848098755
+INFO: Validation Dice score: 0.17371712625026703
+INFO: Validation Dice score: 0.19182038307189941
+INFO: Checkpoint 12 saved!
+INFO: Validation Dice score: 0.18407116830348969
+INFO: Validation Dice score: 0.19847851991653442
+INFO: Validation Dice score: 0.1909722238779068
+INFO: Validation Dice score: 0.2007344514131546
+INFO: Validation Dice score: 0.17588044703006744
+INFO: Checkpoint 13 saved!
+INFO: Validation Dice score: 0.19837269186973572
+INFO: Validation Dice score: 0.20772214233875275
+INFO: Validation Dice score: 0.18754947185516357
+INFO: Validation Dice score: 0.19079294800758362
+INFO: Validation Dice score: 0.1806991845369339
+INFO: Checkpoint 14 saved!
+INFO: Validation Dice score: 0.17890547215938568
+INFO: Validation Dice score: 0.1765574812889099
+INFO: Validation Dice score: 0.214468315243721
+INFO: Validation Dice score: 0.20146813988685608
+INFO: Validation Dice score: 0.17698867619037628
+INFO: Checkpoint 15 saved!
+INFO: Validation Dice score: 0.20839308202266693
+INFO: Validation Dice score: 0.20585417747497559
+INFO: Validation Dice score: 0.26924148201942444
+INFO: Validation Dice score: 0.2010464370250702
+INFO: Validation Dice score: 0.20399470627307892
+INFO: Checkpoint 16 saved!
+INFO: Validation Dice score: 0.1990058273077011
+INFO: Validation Dice score: 0.19137997925281525
+INFO: Validation Dice score: 0.21309490501880646
+INFO: Validation Dice score: 0.2374250888824463
+INFO: Validation Dice score: 0.22545786201953888
+INFO: Checkpoint 17 saved!
+INFO: Validation Dice score: 0.19327132403850555
+INFO: Validation Dice score: 0.18453796207904816
+INFO: Validation Dice score: 0.20061080157756805
+INFO: Validation Dice score: 0.1557682454586029
+INFO: Validation Dice score: 0.16510702669620514
+INFO: Checkpoint 18 saved!
+INFO: Validation Dice score: 0.173611119389534
+INFO: Validation Dice score: 0.1408890038728714
+INFO: Validation Dice score: 0.17013952136039734
+INFO: Validation Dice score: 0.17831240594387054
+INFO: Validation Dice score: 0.17169690132141113
+INFO: Checkpoint 19 saved!
+INFO: Validation Dice score: 0.1702541708946228
+INFO: Validation Dice score: 0.17708371579647064
+INFO: Validation Dice score: 0.1770833283662796
+INFO: Validation Dice score: 0.17401333153247833
+INFO: Validation Dice score: 0.17497004568576813
+INFO: Checkpoint 20 saved!
+INFO: Validation Dice score: 0.24559582769870758
+INFO: Validation Dice score: 0.20833386480808258
+INFO: Validation Dice score: 0.17820531129837036
+INFO: Validation Dice score: 0.15791334211826324
+INFO: Validation Dice score: 0.1530122458934784
+INFO: Checkpoint 21 saved!
+INFO: Validation Dice score: 0.25856390595436096
+INFO: Validation Dice score: 0.17979289591312408
+INFO: Validation Dice score: 0.22343648970127106
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Validation Dice score: 0.1875
+INFO: Validation Dice score: 0.1979166716337204
+INFO: Validation Dice score: 0.1944444477558136
+INFO: Validation Dice score: 0.204861119389534
+INFO: Validation Dice score: 0.2118055522441864
+INFO: Checkpoint 1 saved!
+INFO: Validation Dice score: 0.1944444477558136
+INFO: Validation Dice score: 0.2743055522441864
+INFO: Validation Dice score: 0.1805555522441864
+INFO: Validation Dice score: 0.1909722238779068
+INFO: Validation Dice score: 0.1527777761220932
+INFO: Checkpoint 2 saved!
+INFO: Validation Dice score: 0.1631944477558136
+INFO: Validation Dice score: 0.1597222238779068
+INFO: Validation Dice score: 0.1527777761220932
+INFO: Validation Dice score: 0.2152777761220932
+INFO: Validation Dice score: 0.173611119389534
+INFO: Checkpoint 3 saved!
+INFO: Validation Dice score: 0.1770833283662796
+INFO: Validation Dice score: 0.1840277761220932
+INFO: Validation Dice score: 0.1597222238779068
+INFO: Validation Dice score: 0.1909722238779068
+INFO: Validation Dice score: 0.1493055522441864
+INFO: Checkpoint 4 saved!
+INFO: Validation Dice score: 0.15625
+INFO: Validation Dice score: 0.1631944477558136
+INFO: Validation Dice score: 0.2118055522441864
+INFO: Validation Dice score: 0.1631944477558136
+INFO: Validation Dice score: 0.2152777761220932
+INFO: Checkpoint 5 saved!
+INFO: Validation Dice score: 0.1909722238779068
+INFO: Validation Dice score: 0.1770833283662796
+INFO: Validation Dice score: 0.2118055522441864
+INFO: Validation Dice score: 0.1527777761220932
+INFO: Validation Dice score: 0.1701388955116272
+INFO: Checkpoint 6 saved!
+INFO: Validation Dice score: 0.1666666716337204
+INFO: Validation Dice score: 0.1805555522441864
+INFO: Validation Dice score: 0.008123604580760002
+INFO: Validation Dice score: 0.1840277761220932
+INFO: Validation Dice score: 0.1947339028120041
+INFO: Checkpoint 7 saved!
+INFO: Validation Dice score: 0.2013888955116272
+INFO: Validation Dice score: 0.1840277761220932
+INFO: Validation Dice score: 0.1701388955116272
+INFO: Validation Dice score: 0.1770833283662796
+INFO: Validation Dice score: 0.1875
+INFO: Checkpoint 8 saved!
+INFO: Validation Dice score: 0.22399255633354187
+INFO: Validation Dice score: 0.03851558640599251
+INFO: Validation Dice score: 0.23027968406677246
+INFO: Validation Dice score: 0.1354166716337204
+INFO: Validation Dice score: 0.1979166716337204
+INFO: Checkpoint 9 saved!
+INFO: Validation Dice score: 0.21958336234092712
+INFO: Validation Dice score: 0.19842353463172913
+INFO: Validation Dice score: 0.1979166716337204
+INFO: Validation Dice score: 0.1979166716337204
+INFO: Validation Dice score: 0.13851971924304962
+INFO: Checkpoint 10 saved!
+INFO: Validation Dice score: 0.18112251162528992
+INFO: Validation Dice score: 0.012391272932291031
+INFO: Validation Dice score: 0.029301652684807777
+INFO: Validation Dice score: 0.011285735294222832
+INFO: Validation Dice score: 0.1770833283662796
+INFO: Checkpoint 11 saved!
+INFO: Validation Dice score: 0.1770833283662796
+INFO: Validation Dice score: 0.17929644882678986
+INFO: Validation Dice score: 0.1701388955116272
+INFO: Validation Dice score: 0.1773928850889206
+INFO: Validation Dice score: 0.1701388955116272
+INFO: Checkpoint 12 saved!
+INFO: Validation Dice score: 0.006981958169490099
+INFO: Validation Dice score: 0.2179017812013626
+INFO: Validation Dice score: 0.057560451328754425
+INFO: Validation Dice score: 0.1228729858994484
+INFO: Validation Dice score: 0.1970817595720291
+INFO: Checkpoint 13 saved!
+INFO: Validation Dice score: 0.014596526511013508
+INFO: Validation Dice score: 0.2118055522441864
+INFO: Validation Dice score: 0.21566292643547058
+INFO: Validation Dice score: 0.006937905214726925
+INFO: Validation Dice score: 0.18874730169773102
+INFO: Checkpoint 14 saved!
+INFO: Validation Dice score: 0.20374782383441925
+INFO: Validation Dice score: 0.06751326471567154
+INFO: Validation Dice score: 0.05204341933131218
+INFO: Validation Dice score: 0.24085040390491486
+INFO: Validation Dice score: 0.02261948399245739
+INFO: Checkpoint 15 saved!
+INFO: Validation Dice score: 0.18951156735420227
+INFO: Validation Dice score: 0.009851745329797268
+INFO: Validation Dice score: 0.023052381351590157
+INFO: Validation Dice score: 0.014358822256326675
+INFO: Validation Dice score: 0.1841307133436203
+INFO: Checkpoint 16 saved!
+INFO: Validation Dice score: 0.018249457702040672
+INFO: Validation Dice score: 0.21905012428760529
+INFO: Validation Dice score: 0.14183372259140015
+INFO: Validation Dice score: 0.016374798491597176
+INFO: Validation Dice score: 0.2098568230867386
+INFO: Checkpoint 17 saved!
+INFO: Validation Dice score: 0.008546863682568073
+INFO: Validation Dice score: 0.04206206277012825
+INFO: Validation Dice score: 0.01905023492872715
+INFO: Validation Dice score: 0.2764117419719696
+INFO: Validation Dice score: 0.19673167169094086
+INFO: Checkpoint 18 saved!
+INFO: Validation Dice score: 0.01831655763089657
+INFO: Validation Dice score: 0.191054105758667
+INFO: Validation Dice score: 0.24568697810173035
+INFO: Validation Dice score: 0.2305045872926712
+INFO: Validation Dice score: 0.1931472271680832
+INFO: Checkpoint 19 saved!
+INFO: Validation Dice score: 0.24140405654907227
+INFO: Validation Dice score: 0.21135669946670532
+INFO: Validation Dice score: 0.05018316209316254
+INFO: Validation Dice score: 0.013089952059090137
+INFO: Validation Dice score: 0.03202659636735916
+INFO: Checkpoint 20 saved!
+INFO: Validation Dice score: 0.2511153519153595
+INFO: Validation Dice score: 0.15744002163410187
+INFO: Validation Dice score: 0.18183965981006622
+INFO: Validation Dice score: 0.002422386547550559
+INFO: Validation Dice score: 0.26222676038742065
+INFO: Checkpoint 21 saved!
+INFO: Validation Dice score: 0.1496928334236145
+INFO: Validation Dice score: 0.0073199146427214146
+INFO: Validation Dice score: 0.18237166106700897
+INFO: Validation Dice score: 0.07698146998882294
+INFO: Validation Dice score: 0.21910223364830017
+INFO: Checkpoint 22 saved!
+INFO: Validation Dice score: 0.2152777761220932
+INFO: Validation Dice score: 0.174082413315773
+INFO: Validation Dice score: 0.014047243632376194
+INFO: Validation Dice score: 0.16720233857631683
+INFO: Validation Dice score: 0.20510895550251007
+INFO: Checkpoint 23 saved!
+INFO: Validation Dice score: 0.1655779331922531
+INFO: Validation Dice score: 0.16324631869792938
+INFO: Validation Dice score: 0.17190402746200562
+INFO: Validation Dice score: 0.168693408370018
+INFO: Validation Dice score: 0.16548340022563934
+INFO: Checkpoint 24 saved!
+INFO: Validation Dice score: 0.21773865818977356
+INFO: Validation Dice score: 0.04420936852693558
+INFO: Validation Dice score: 0.18407492339611053
+INFO: Validation Dice score: 0.18493349850177765
+INFO: Validation Dice score: 0.19795763492584229
+INFO: Checkpoint 25 saved!
+INFO: Validation Dice score: 0.16225457191467285
+INFO: Validation Dice score: 0.0005931780906394124
+INFO: Validation Dice score: 0.030229667201638222
+INFO: Validation Dice score: 0.18680156767368317
+INFO: Validation Dice score: 0.02315392531454563
+INFO: Checkpoint 26 saved!
+INFO: Validation Dice score: 0.021838808432221413
+INFO: Validation Dice score: 0.010240649804472923
+INFO: Validation Dice score: 0.19186702370643616
+INFO: Validation Dice score: 0.047994352877140045
+INFO: Validation Dice score: 0.1855010688304901
+INFO: Checkpoint 27 saved!
+INFO: Validation Dice score: 0.1702568680047989
+INFO: Validation Dice score: 0.030429400503635406
+INFO: Validation Dice score: 0.13993318378925323
+INFO: Validation Dice score: 0.19445005059242249
+INFO: Validation Dice score: 0.15023252367973328
+INFO: Checkpoint 28 saved!
+INFO: Validation Dice score: 0.008354702033102512
+INFO: Validation Dice score: 0.1901295930147171
+INFO: Validation Dice score: 0.00957968644797802
+INFO: Validation Dice score: 0.208142951130867
+INFO: Validation Dice score: 0.18178445100784302
+INFO: Checkpoint 29 saved!
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Validation Dice score: 0.2083333283662796
+INFO: Validation Dice score: 0.2222222238779068
+INFO: Validation Dice score: 0.1805555522441864
+INFO: Validation Dice score: 0.1944444477558136
+INFO: Validation Dice score: 0.1944444477558136
+INFO: Checkpoint 1 saved!
+INFO: Validation Dice score: 0.1770833283662796
+INFO: Validation Dice score: 0.1979166716337204
+INFO: Validation Dice score: 0.1875
+INFO: Validation Dice score: 0.2152777761220932
+INFO: Validation Dice score: 0.173611119389534
+INFO: Checkpoint 2 saved!
+INFO: Validation Dice score: 0.15625
+INFO: Validation Dice score: 0.1805555522441864
+INFO: Validation Dice score: 0.204861119389534
+INFO: Validation Dice score: 0.1805555522441864
+INFO: Validation Dice score: 0.173611119389534
+INFO: Checkpoint 3 saved!
+INFO: Validation Dice score: 0.1909722238779068
+INFO: Validation Dice score: 0.2118055522441864
+INFO: Validation Dice score: 0.2222222238779068
+INFO: Validation Dice score: 0.1493055522441864
+INFO: Validation Dice score: 0.1666666716337204
+INFO: Checkpoint 4 saved!
+INFO: Validation Dice score: 0.2083333283662796
+INFO: Validation Dice score: 0.18576955795288086
+INFO: Validation Dice score: 0.1979166716337204
+INFO: Validation Dice score: 0.1701388955116272
+INFO: Validation Dice score: 0.1909722238779068
+INFO: Checkpoint 5 saved!
+INFO: Validation Dice score: 0.10739637166261673
+INFO: Validation Dice score: 0.204861119389534
+INFO: Validation Dice score: 0.1493055522441864
+INFO: Validation Dice score: 0.1666666716337204
+INFO: Validation Dice score: 0.2123216688632965
+INFO: Checkpoint 6 saved!
+INFO: Validation Dice score: 0.2083333283662796
+INFO: Validation Dice score: 0.18078425526618958
+INFO: Validation Dice score: 0.1458333283662796
+INFO: Validation Dice score: 0.1892440915107727
+INFO: Validation Dice score: 0.19979380071163177
+INFO: Checkpoint 7 saved!
+INFO: Validation Dice score: 0.16879425942897797
+INFO: Validation Dice score: 0.006954765412956476
+INFO: Validation Dice score: 0.1631944477558136
+INFO: Validation Dice score: 0.1909722238779068
+INFO: Validation Dice score: 0.21085357666015625
+INFO: Checkpoint 8 saved!
+INFO: Validation Dice score: 0.2153676301240921
+INFO: Validation Dice score: 0.1875
+INFO: Validation Dice score: 0.1909722238779068
+INFO: Validation Dice score: 0.15981726348400116
+INFO: Validation Dice score: 0.024553602561354637
+INFO: Checkpoint 9 saved!
+INFO: Validation Dice score: 0.21019865572452545
+INFO: Validation Dice score: 0.2152777761220932
+INFO: Validation Dice score: 0.011453581042587757
+INFO: Validation Dice score: 0.202936053276062
+INFO: Validation Dice score: 0.1840277761220932
+INFO: Checkpoint 10 saved!
+INFO: Validation Dice score: 0.21203018724918365
+INFO: Validation Dice score: 0.13612833619117737
+INFO: Validation Dice score: 0.16707143187522888
+INFO: Validation Dice score: 0.1666666716337204
+INFO: Validation Dice score: 0.010810156352818012
+INFO: Checkpoint 11 saved!
+INFO: Validation Dice score: 0.09159612655639648
+INFO: Validation Dice score: 0.0017445606645196676
+INFO: Validation Dice score: 0.1943059116601944
+INFO: Validation Dice score: 0.11636137962341309
+INFO: Validation Dice score: 0.1896035224199295
+INFO: Checkpoint 12 saved!
+INFO: Validation Dice score: 0.1668567955493927
+INFO: Validation Dice score: 0.142361119389534
+INFO: Validation Dice score: 0.011707780882716179
+INFO: Validation Dice score: 0.18055592477321625
+INFO: Validation Dice score: 0.2152777761220932
+INFO: Checkpoint 13 saved!
+INFO: Validation Dice score: 0.1319444477558136
+INFO: Validation Dice score: 0.2083333283662796
+INFO: Validation Dice score: 0.1671082228422165
+INFO: Validation Dice score: 0.15625
+INFO: Validation Dice score: 0.1631944477558136
+INFO: Checkpoint 14 saved!
+INFO: Validation Dice score: 0.17887333035469055
+INFO: Validation Dice score: 0.1666666716337204
+INFO: Validation Dice score: 0.17438296973705292
+INFO: Validation Dice score: 0.1770833283662796
+INFO: Validation Dice score: 0.1770833283662796
+INFO: Checkpoint 15 saved!
+INFO: Validation Dice score: 0.16995872557163239
+INFO: Validation Dice score: 0.1458333283662796
+INFO: Validation Dice score: 0.1388888955116272
+INFO: Validation Dice score: 0.1770833283662796
+INFO: Validation Dice score: 0.2118055522441864
+INFO: Checkpoint 16 saved!
+INFO: Validation Dice score: 0.1750674694776535
+INFO: Validation Dice score: 0.20841048657894135
+INFO: Validation Dice score: 0.12472666800022125
+INFO: Validation Dice score: 0.19606171548366547
+INFO: Validation Dice score: 0.03507029265165329
+INFO: Checkpoint 17 saved!
+INFO: Validation Dice score: 0.28480735421180725
+INFO: Validation Dice score: 0.1805555522441864
+INFO: Validation Dice score: 0.23702794313430786
+INFO: Validation Dice score: 0.19745805859565735
+INFO: Validation Dice score: 0.15643246471881866
+INFO: Checkpoint 18 saved!
+INFO: Validation Dice score: 0.1805555522441864
+INFO: Validation Dice score: 0.2034064382314682
+INFO: Validation Dice score: 0.1875
+INFO: Validation Dice score: 0.1505722850561142
+INFO: Validation Dice score: 0.1319444477558136
+INFO: Checkpoint 19 saved!
+INFO: Validation Dice score: 0.19474999606609344
+INFO: Validation Dice score: 0.21875
+INFO: Validation Dice score: 0.23793642222881317
+INFO: Validation Dice score: 0.18756917119026184
+INFO: Validation Dice score: 0.11733272671699524
+INFO: Checkpoint 20 saved!
+INFO: Validation Dice score: 0.1631944477558136
+INFO: Validation Dice score: 0.17413093149662018
+INFO: Validation Dice score: 0.1770833283662796
+INFO: Validation Dice score: 0.16581004858016968
+INFO: Validation Dice score: 0.12170577049255371
+INFO: Checkpoint 21 saved!
+INFO: Validation Dice score: 0.15545541048049927
+INFO: Validation Dice score: 0.1770833283662796
+INFO: Validation Dice score: 0.1770833283662796
+INFO: Validation Dice score: 0.1637875884771347
+INFO: Validation Dice score: 0.1875
+INFO: Checkpoint 22 saved!
+INFO: Validation Dice score: 0.1925399899482727
+INFO: Validation Dice score: 0.2083333283662796
+INFO: Validation Dice score: 0.34040218591690063
+INFO: Validation Dice score: 0.14879997074604034
+INFO: Validation Dice score: 0.1111111119389534
+INFO: Checkpoint 23 saved!
+INFO: Validation Dice score: 0.14596955478191376
+INFO: Validation Dice score: 0.195347860455513
+INFO: Validation Dice score: 0.19436459243297577
+INFO: Validation Dice score: 0.1493055522441864
+INFO: Validation Dice score: 0.1388888955116272
+INFO: Checkpoint 24 saved!
+INFO: Validation Dice score: 0.1774592101573944
+INFO: Validation Dice score: 0.18595513701438904
+INFO: Validation Dice score: 0.26484131813049316
+INFO: Validation Dice score: 0.1493055522441864
+INFO: Validation Dice score: 0.1354166716337204
+INFO: Checkpoint 25 saved!
+INFO: Validation Dice score: 0.12162015587091446
+INFO: Validation Dice score: 0.275217205286026
+INFO: Validation Dice score: 0.13914857804775238
+INFO: Validation Dice score: 0.19260303676128387
+INFO: Validation Dice score: 0.2233908772468567
+INFO: Checkpoint 26 saved!
+INFO: Validation Dice score: 0.23021748661994934
+INFO: Validation Dice score: 0.16871024668216705
+INFO: Validation Dice score: 0.2601396441459656
+INFO: Validation Dice score: 0.1527777761220932
+INFO: Validation Dice score: 0.1972348690032959
+INFO: Checkpoint 27 saved!
+INFO: Validation Dice score: 0.1537184715270996
+INFO: Validation Dice score: 0.1775311380624771
+INFO: Validation Dice score: 0.18448713421821594
+INFO: Validation Dice score: 0.23559018969535828
+INFO: Validation Dice score: 0.21268822252750397
+INFO: Checkpoint 28 saved!
+INFO: Validation Dice score: 0.15696756541728973
+INFO: Validation Dice score: 0.05712203308939934
+INFO: Validation Dice score: 0.17637236416339874
+INFO: Validation Dice score: 0.2546193599700928
+INFO: Validation Dice score: 0.21874862909317017
+INFO: Checkpoint 29 saved!
+INFO: Validation Dice score: 0.3377150595188141
+INFO: Validation Dice score: 0.34029874205589294
+INFO: Validation Dice score: 0.18677447736263275
+INFO: Validation Dice score: 0.20141413807868958
+INFO: Validation Dice score: 0.3183356523513794
+INFO: Checkpoint 30 saved!
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Validation Dice score: 0.2013888955116272
+INFO: Validation Dice score: 0.204861119389534
+INFO: Validation Dice score: 0.173611119389534
+INFO: Validation Dice score: 0.1284722238779068
+INFO: Validation Dice score: 0.1979166716337204
+INFO: Checkpoint 1 saved!
+INFO: Validation Dice score: 0.1979166716337204
+INFO: Validation Dice score: 0.1805555522441864
+INFO: Validation Dice score: 0.1458333283662796
+INFO: Validation Dice score: 0.1770833283662796
+INFO: Validation Dice score: 0.1875
+INFO: Checkpoint 2 saved!
+INFO: Validation Dice score: 0.1944444477558136
+INFO: Validation Dice score: 0.2222222238779068
+INFO: Validation Dice score: 0.173611119389534
+INFO: Validation Dice score: 0.173611119389534
+INFO: Validation Dice score: 0.1875
+INFO: Checkpoint 3 saved!
+INFO: Validation Dice score: 0.2083333283662796
+INFO: Validation Dice score: 0.2118055522441864
+INFO: Validation Dice score: 0.1875
+INFO: Validation Dice score: 0.173611119389534
+INFO: Validation Dice score: 0.17726926505565643
+INFO: Checkpoint 4 saved!
+INFO: Validation Dice score: 0.1840277761220932
+INFO: Validation Dice score: 0.1388888955116272
+INFO: Validation Dice score: 0.1770833283662796
+INFO: Validation Dice score: 0.1909722238779068
+INFO: Validation Dice score: 0.17755816876888275
+INFO: Checkpoint 5 saved!
+INFO: Validation Dice score: 0.16073115170001984
+INFO: Validation Dice score: 0.14677700400352478
+INFO: Validation Dice score: 0.006082868203520775
+INFO: Validation Dice score: 0.12153048068284988
+INFO: Validation Dice score: 2.5437045678700088e-06
+INFO: Checkpoint 6 saved!
+INFO: Validation Dice score: 0.12481258809566498
+INFO: Validation Dice score: 0.026095924898982048
+INFO: Validation Dice score: 4.757811893796315e-06
+INFO: Validation Dice score: 0.21875
+INFO: Validation Dice score: 0.0342743881046772
+INFO: Checkpoint 7 saved!
+INFO: Validation Dice score: 4.040701696794713e-06
+INFO: Validation Dice score: 0.14600221812725067
+INFO: Validation Dice score: 0.09375329315662384
+INFO: Validation Dice score: 0.10813008248806
+INFO: Validation Dice score: 0.01426372304558754
+INFO: Checkpoint 8 saved!
+INFO: Validation Dice score: 0.27916187047958374
+INFO: Validation Dice score: 0.1909722238779068
+INFO: Validation Dice score: 0.1527777910232544
+INFO: Validation Dice score: 0.1840277761220932
+INFO: Validation Dice score: 0.1909722238779068
+INFO: Checkpoint 9 saved!
+INFO: Validation Dice score: 0.010717525146901608
+INFO: Validation Dice score: 0.1076388880610466
+INFO: Validation Dice score: 0.1643870770931244
+INFO: Validation Dice score: 0.14375805854797363
+INFO: Validation Dice score: 3.265067789470777e-05
+INFO: Checkpoint 10 saved!
+INFO: Validation Dice score: 0.17176224291324615
+INFO: Validation Dice score: 0.06062232702970505
+INFO: Validation Dice score: 0.16647787392139435
+INFO: Validation Dice score: 0.014425030909478664
+INFO: Validation Dice score: 0.14290882647037506
+INFO: Checkpoint 11 saved!
+INFO: Validation Dice score: 0.17092972993850708
+INFO: Validation Dice score: 0.1635076105594635
+INFO: Validation Dice score: 0.15699906647205353
+INFO: Validation Dice score: 0.1332840472459793
+INFO: Validation Dice score: 0.12382864952087402
+INFO: Checkpoint 12 saved!
+INFO: Validation Dice score: 0.19460813701152802
+INFO: Validation Dice score: 0.16177630424499512
+INFO: Validation Dice score: 0.16364750266075134
+INFO: Validation Dice score: 0.1597222536802292
+INFO: Validation Dice score: 0.13253144919872284
+INFO: Checkpoint 13 saved!
+INFO: Validation Dice score: 0.27896207571029663
+INFO: Validation Dice score: 0.15868137776851654
+INFO: Validation Dice score: 0.15295465290546417
+INFO: Validation Dice score: 0.03703828155994415
+INFO: Validation Dice score: 0.07980957627296448
+INFO: Checkpoint 14 saved!
+INFO: Validation Dice score: 0.18577000498771667
+INFO: Validation Dice score: 0.01822434552013874
+INFO: Validation Dice score: 0.1721862107515335
+INFO: Validation Dice score: 0.14558927714824677
+INFO: Validation Dice score: 2.662652150320355e-06
+INFO: Checkpoint 15 saved!
+INFO: Validation Dice score: 0.03569413721561432
+INFO: Validation Dice score: 0.17271701991558075
+INFO: Validation Dice score: 0.12574245035648346
+INFO: Validation Dice score: 0.15764419734477997
+INFO: Validation Dice score: 0.07624102383852005
+INFO: Checkpoint 16 saved!
+INFO: Validation Dice score: 0.03428509831428528
+INFO: Validation Dice score: 0.06116541102528572
+INFO: Validation Dice score: 0.1439659297466278
+INFO: Validation Dice score: 0.12033156305551529
+INFO: Validation Dice score: 0.21558238565921783
+INFO: Checkpoint 17 saved!
+INFO: Validation Dice score: 0.134542778134346
+INFO: Validation Dice score: 0.1795598268508911
+INFO: Validation Dice score: 0.22314487397670746
+INFO: Validation Dice score: 0.11461443454027176
+INFO: Validation Dice score: 0.1557590812444687
+INFO: Checkpoint 18 saved!
+INFO: Validation Dice score: 0.0945785716176033
+INFO: Validation Dice score: 0.1336035430431366
+INFO: Validation Dice score: 0.11301831156015396
+INFO: Validation Dice score: 0.2085234373807907
+INFO: Validation Dice score: 0.3220914900302887
+INFO: Checkpoint 19 saved!
+INFO: Validation Dice score: 0.25533515214920044
+INFO: Validation Dice score: 0.22762373089790344
+INFO: Validation Dice score: 0.19161836802959442
+INFO: Validation Dice score: 0.08650802075862885
+INFO: Validation Dice score: 0.09172336012125015
+INFO: Checkpoint 20 saved!
+INFO: Validation Dice score: 0.08959825336933136
+INFO: Validation Dice score: 0.17416970431804657
+INFO: Validation Dice score: 0.21085712313652039
+INFO: Validation Dice score: 0.21710199117660522
+INFO: Validation Dice score: 0.1785152107477188
+INFO: Checkpoint 21 saved!
+INFO: Validation Dice score: 0.17010457813739777
+INFO: Validation Dice score: 0.15001001954078674
+INFO: Validation Dice score: 0.20568647980690002
+INFO: Validation Dice score: 0.15718597173690796
+INFO: Validation Dice score: 0.10833064466714859
+INFO: Checkpoint 22 saved!
+INFO: Validation Dice score: 0.21950870752334595
+INFO: Validation Dice score: 0.18186882138252258
+INFO: Validation Dice score: 0.13720473647117615
+INFO: Validation Dice score: 0.19434674084186554
+INFO: Validation Dice score: 0.08263420313596725
+INFO: Checkpoint 23 saved!
+INFO: Validation Dice score: 0.09500491619110107
+INFO: Validation Dice score: 0.20801188051700592
+INFO: Validation Dice score: 0.18065974116325378
+INFO: Validation Dice score: 0.04875844717025757
+INFO: Validation Dice score: 0.16318388283252716
+INFO: Checkpoint 24 saved!
+INFO: Validation Dice score: 0.18938985466957092
+INFO: Validation Dice score: 0.12260919064283371
+INFO: Validation Dice score: 0.21893449127674103
+INFO: Validation Dice score: 0.2692486345767975
+INFO: Validation Dice score: 0.2737816870212555
+INFO: Checkpoint 25 saved!
+INFO: Validation Dice score: 0.20049817860126495
+INFO: Validation Dice score: 0.2065599411725998
+INFO: Validation Dice score: 0.27434149384498596
+INFO: Validation Dice score: 0.1670243740081787
+INFO: Validation Dice score: 0.15147806704044342
+INFO: Checkpoint 26 saved!
+INFO: Validation Dice score: 0.1897878795862198
+INFO: Validation Dice score: 0.29487428069114685
+INFO: Validation Dice score: 0.1875932365655899
+INFO: Validation Dice score: 0.13465440273284912
+INFO: Validation Dice score: 0.20070791244506836
+INFO: Checkpoint 27 saved!
+INFO: Validation Dice score: 0.27931833267211914
+INFO: Validation Dice score: 0.11232397705316544
+INFO: Validation Dice score: 0.30864155292510986
+INFO: Validation Dice score: 0.10561646521091461
+INFO: Validation Dice score: 0.2361559122800827
+INFO: Checkpoint 28 saved!
+INFO: Validation Dice score: 0.21427328884601593
+INFO: Validation Dice score: 0.15826080739498138
+INFO: Validation Dice score: 0.1735452562570572
+INFO: Validation Dice score: 0.19665010273456573
+INFO: Validation Dice score: 0.15002740919589996
+INFO: Checkpoint 29 saved!
+INFO: Validation Dice score: 0.1731906235218048
+INFO: Validation Dice score: 0.22861677408218384
+INFO: Validation Dice score: 0.3111860454082489
+INFO: Validation Dice score: 0.28240054845809937
+INFO: Validation Dice score: 0.31800615787506104
+INFO: Checkpoint 30 saved!

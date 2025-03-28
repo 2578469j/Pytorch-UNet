@@ -147,8 +147,8 @@ def train_model(
     #criterion = nn.BCEWithLogitsLoss()#pos_weight=pos_weight)
 
     #criterion = nn.CrossEntropyLoss() if model.n_classes > 1 else nn.BCEWithLogitsLoss()
-    criterion = WeightedBinaryCrossEntropyLoss(patch_size=31)
-    #criterion = WeightedBinaryCrossEntropyLossGlobal()
+    #criterion = WeightedBinaryCrossEntropyLoss(patch_size=31)
+    criterion = WeightedBinaryCrossEntropyLossGlobal()
     #criterion = sigmoid_focal_loss #FocalLoss(gamma=0.7)
     global_step = 0
 

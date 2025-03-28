@@ -104,6 +104,12 @@ class GemsySplitLoader():
     
     def get_gt_fpath(self, id):
         return f"{id}_{self.features['gt']}"
+    
+    def get_opacity_fpath(self, id):
+        return f"{id}_{self.features['opacity']}"
+
+    def get_dbscan_fpath(self, id):
+        return f"{id}_{self.features['dbscan']}"
 
     def get_mask_fpaths(self):
         mask_fpaths = []
@@ -498,11 +504,13 @@ class GemsyDataset(Dataset):
         name = self.ids[img_idx]
 
         mask_fname = self.split_loader.get_mask_fpath(name)
-        gt_fname = self.split_loader.get_gt_fpath(name)
-
+        img_fname = self.split_loader.get_gt_fpath(name)
+        #img_fname = self.split_loader.get_full_fpath(name)
+        #img_fname = self.split_loader.get_opacity_fpath(name)
+        #img_fname = self.split_loader.get_dbscan_fpath(name)
         # Build preprocessed cache paths
         preprocessed_mask_path = self.mask_dir / ".preprocessed" / f"{mask_fname}.pt"
-        preprocessed_img_path = self.images_dir / ".preprocessed" / f"{gt_fname}.pt"
+        preprocessed_img_path = self.images_dir / ".preprocessed" / f"{img_fname}.pt"
 
         if img_idx in self.cached_masks:
             mask = self.cached_masks[img_idx]
@@ -517,7 +525,7 @@ class GemsyDataset(Dataset):
             self.cached_imgs[img_idx] = img
         else:
             mask = load_image(self.mask_dir / mask_fname)
-            img = load_image(self.images_dir / gt_fname)
+            img = load_image(self.images_dir / img_fname)
 
             assert img.size == mask.size, \
                 f'Image and mask {name} should be the same size, but are {img.size} and {mask.size}'
