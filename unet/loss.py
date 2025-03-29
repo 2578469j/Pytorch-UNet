@@ -3,6 +3,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torchvision.transforms.functional import rgb_to_grayscale
 
+from utils.dice_score import dice_loss
+
 # Python implementation of local-variance BCE loss provided by paper:
 # "
 #  Surface Defect Detection for Mobile Phone Back Glass Based on 
@@ -64,3 +66,57 @@ class WeightedBinaryCrossEntropyLossGlobal(nn.Module):
         weight_map = compute_weight_map(variance_map, self.bias)
         binary_loss = weighted_bce_loss(logits, target, weight_map, self.eps)
         return binary_loss
+    
+class LoggingCriterionModule():
+    def __init__(self, criterion_name="BCELV", **kwargs):
+        self.criterion_name =  criterion_name
+        self.criterion = None
+        self.get_loss = None
+        self.kwargs = kwargs
+
+        if criterion_name == "BCELV":
+            self.criterion = WeightedBinaryCrossEntropyLoss(**self.kwargs)
+            self.get_loss = self.BCELV_loss
+        elif criterion_name == "BCELV+D":
+            self.criterion = WeightedBinaryCrossEntropyLoss(**self.kwargs)
+            self.get_loss = self.BCELV_D_loss
+
+    def BCELV_loss(self, images, masks_pred, true_masks):
+        if images.shape[1] > 3:
+            images = images[:, :3, :, :]
+        masks_pred = masks_pred.squeeze(1)
+        true_masks = true_masks.float()
+        loss = self.criterion(images, masks_pred, true_masks, self.kwargs)
+        return loss
+    
+    def BCELV_D_loss(self, images, masks_pred, true_masks):
+        if images.shape[1] > 3:
+            images = images[:, :3, :, :]
+        masks_pred = masks_pred.squeeze(1)
+        true_masks = true_masks.float()
+        loss_crit = self.criterion(images, masks_pred, true_masks)
+        loss_dice = dice_loss(F.sigmoid(masks_pred), true_masks, multiclass=False)
+        return loss_crit, loss_dice
+    
+    # Criterion part
+    #criterion = nn.CrossEntropyLoss() if model.n_classes > 1 else nn.BCEWithLogitsLoss()
+    #criterion = WeightedBinaryCrossEntropyLoss(patch_size=31)
+    #criterion = WeightedBinaryCrossEntropyLossGlobal()
+    #criterion = sigmoid_focal_loss #FocalLoss(gamma=0.7)
+    #    defective = 6813187
+    #non_defective = 1088686589
+    #pos_weight = torch.tensor([non_defective / defective], device="cuda")  # ≈ 159.7
+    #criterion = nn.BCEWithLogitsLoss()#pos_weight=pos_weight)
+
+# Loss part
+ # loss = criterion(images, masks_pred.squeeze(1), true_masks.float()) # variance-based
+                        #loss = criterion(masks_pred.squeeze(1), true_masks.float()) # traditional
+                       # dice_val = dice_loss(F.sigmoid(masks_pred.squeeze(1)), true_masks.float(), multiclass=False)
+                       # loss += dice_val
+                        #loss = criterion(masks_pred.squeeze(1), true_masks.float(), reduction='mean')
+                        #loss = dice_loss(F.sigmoid(masks_pred.squeeze(1)), true_masks.float(), multiclass=False)
+    def print_params(self):
+        return str(self.kwargs)
+    
+    def print_criterion(self):
+        return self.criterion_name

@@ -96,20 +96,27 @@ class GemsySplitLoader():
                 ids.append(f"{id}")
         return ids
     
+    def get_feature_fpaths(self, id, features):
+        feature_fpaths = {}
+
+        for feature in features:
+            feature_fpaths[feature] = f"{id}_{self.features[feature]}"
+        return feature_fpaths
+
     def get_mask_fpath(self, id):
         return f"{id}.png"
     
-    def get_full_fpath(self, id):
-        return f"{id}_{self.features['full']}"
+    # def get_full_fpath(self, id):
+    #     return f"{id}_{self.features['full']}"
     
-    def get_gt_fpath(self, id):
-        return f"{id}_{self.features['gt']}"
+    # def get_gt_fpath(self, id):
+    #     return f"{id}_{self.features['gt']}"
     
-    def get_opacity_fpath(self, id):
-        return f"{id}_{self.features['opacity']}"
+    # def get_opacity_fpath(self, id):
+    #     return f"{id}_{self.features['opacity']}"
 
-    def get_dbscan_fpath(self, id):
-        return f"{id}_{self.features['dbscan']}"
+    # def get_dbscan_fpath(self, id):
+    #     return f"{id}_{self.features['dbscan']}"
 
     def get_mask_fpaths(self):
         mask_fpaths = []
@@ -432,13 +439,15 @@ class GemsyPatchDataset(Dataset):
         }
     
 class GemsyDataset(Dataset):
-    def __init__(self, images_dir:str, mask_dir:str, patch_size=512, patches_per_image=300, scale=1.0, transform=None, ids=None):
+    def __init__(self, images_dir:str, mask_dir:str, patch_size=512, patches_per_image=300, scale=1.0, features = ['gt'], defect_focus_rate = 0.7, transform=None, ids=None):
         self.images_dir = Path(images_dir)
         self.mask_dir = Path(mask_dir)
         self.scale = scale
         self.transform = transform
         self.patch_size = patch_size
         self.patches_per_image = patches_per_image
+        self.features = features
+        self.defect_focus_rate = defect_focus_rate
 
         self.cached_masks = {}
         self.cached_imgs = {}
@@ -499,64 +508,129 @@ class GemsyDataset(Dataset):
 
         return img_patch, mask_patch
 
+    def extract_patches(self, imgs, mask, defect_focus=True):
+        H, W = mask.shape
+        ph, pw = self.patch_size, self.patch_size
+
+        if defect_focus and (mask == 1).any():
+            # Get defect pixel indices
+            yx = np.argwhere(mask == 1)
+            y, x = yx[np.random.randint(len(yx))]
+            top = max(0, y - ph // 2)
+            left = max(0, x - pw // 2)
+        else:
+            top = np.random.randint(0, H - ph + 1)
+            left = np.random.randint(0, W - pw + 1)
+
+        img_patches = imgs[:, top:top+ph, left:left+pw]
+        mask_patch = mask[top:top+ph, left:left+pw]
+
+        return img_patches, mask_patch
+
     def __getitem__(self, idx):
         img_idx = idx // self.patches_per_image
         name = self.ids[img_idx]
 
         mask_fname = self.split_loader.get_mask_fpath(name)
-        img_fname = self.split_loader.get_gt_fpath(name)
+       # img_fnames = self.split_loader.get_gt_fpath(name, self.features)
+        img_fnames = self.split_loader.get_feature_fpaths(name, self.features)
         #img_fname = self.split_loader.get_full_fpath(name)
         #img_fname = self.split_loader.get_opacity_fpath(name)
         #img_fname = self.split_loader.get_dbscan_fpath(name)
         # Build preprocessed cache paths
         preprocessed_mask_path = self.mask_dir / ".preprocessed" / f"{mask_fname}.pt"
-        preprocessed_img_path = self.images_dir / ".preprocessed" / f"{img_fname}.pt"
+        preprocessed_img_paths = {feature: self.images_dir / ".preprocessed" / f"{img_fname}.pt" for feature, img_fname in img_fnames.items()}
+        #preprocessed_img_paths['mask'] = mask_fname
+        imgs = {}
 
         if img_idx in self.cached_masks:
             mask = self.cached_masks[img_idx]
-            img = self.cached_imgs[img_idx]
-        elif preprocessed_mask_path.exists() and preprocessed_img_path.exists():
-            # Load from disk cache if available
-            mask = torch.load(preprocessed_mask_path, weights_only=False)
-            img = torch.load(preprocessed_img_path, weights_only=False)
-
-            # Store in memory cache
-            self.cached_masks[img_idx] = mask
-            self.cached_imgs[img_idx] = img
+            imgs = self.cached_imgs[img_idx]
         else:
-            mask = load_image(self.mask_dir / mask_fname)
-            img = load_image(self.images_dir / img_fname)
+            # Mask fetching
+            #mask_size = None
+            if preprocessed_mask_path.exists():
+                mask = torch.load(preprocessed_mask_path, weights_only=False)
+                self.cached_masks[img_idx] = mask
+            else:
+                mask = load_image(self.mask_dir / mask_fname)
+                mask = self.preprocess(self.mask_values, mask, self.scale, is_mask=True)
 
-            assert img.size == mask.size, \
-                f'Image and mask {name} should be the same size, but are {img.size} and {mask.size}'
+                # Save preprocessed tensors to disk
+                preprocessed_mask_path.parent.mkdir(parents=True, exist_ok=True)
+                torch.save(mask, preprocessed_mask_path)
+                # Store in memory cache
+                self.cached_masks[img_idx] = mask
 
-            img = self.preprocess(self.mask_values, img, self.scale, is_mask=False)
-            mask = self.preprocess(self.mask_values, mask, self.scale, is_mask=True)
+            # Feature fetching
+            for feature, ppath in preprocessed_img_paths.items():
+                # Load from disk if available
+                if ppath.exists():
+                    img = torch.load(ppath, weights_only=False)
+                else:
+                    # Load image from raw
+                    img = load_image(self.images_dir / img_fnames[feature])
+                   # assert img.size == mask_size, \
+                   #     f'Image and mask {name} should be the same size, but are {img.size} and {mask_size}'
+                    img = self.preprocess(self.mask_values, img, self.scale, is_mask=False)
+                    # Save preprocessed tensors to disk
+                    ppath.parent.mkdir(parents=True, exist_ok=True)
+                    torch.save(img, ppath)
+    
+                imgs[feature] = img
+                # Store in memory cache
+                cached_imgs = self.cached_imgs.get(img_idx, {})
+                cached_imgs[feature] = img
+                self.cached_imgs[img_idx] = cached_imgs
 
-            # Save preprocessed tensors to disk
-            preprocessed_mask_path.parent.mkdir(parents=True, exist_ok=True)
-            preprocessed_img_path.parent.mkdir(parents=True, exist_ok=True)
-            torch.save(mask, preprocessed_mask_path)
-            torch.save(img, preprocessed_img_path)
+        # Concatenate feature images into single array
+        img_list = list(imgs.values())
+        stacked_img = np.concatenate(img_list, axis=0)
 
-            # Store in memory cache
-            self.cached_masks[img_idx] = mask
-            self.cached_imgs[img_idx] = img
+        # elif preprocessed_mask_path.exists() and all(ppath.exists() for ppath in preprocessed_img_paths):
+        #     # Load from disk cache if available
+        #     mask = torch.load(preprocessed_mask_path, weights_only=False)
+        #     imgs = [torch.load(ppath, weights_only=False) for ppath in preprocessed_img_paths]
+
+        #     # Store in memory cache
+        #     self.cached_masks[img_idx] = mask
+        #     self.cached_imgs[img_idx] = img
+        # else:
+        #     mask = load_image(self.mask_dir / mask_fname)
+        #     img = load_image(self.images_dir / img_fname)
+
+        #     assert img.size == mask.size, \
+        #         f'Image and mask {name} should be the same size, but are {img.size} and {mask.size}'
+
+        #     img = self.preprocess(self.mask_values, img, self.scale, is_mask=False)
+        #     mask = self.preprocess(self.mask_values, mask, self.scale, is_mask=True)
+
+        #     # Save preprocessed tensors to disk
+        #     preprocessed_mask_path.parent.mkdir(parents=True, exist_ok=True)
+        #     preprocessed_img_path.parent.mkdir(parents=True, exist_ok=True)
+        #     torch.save(mask, preprocessed_mask_path)
+        #     torch.save(img, preprocessed_img_path)
+
+        #     # Store in memory cache
+        #     self.cached_masks[img_idx] = mask
+        #     self.cached_imgs[img_idx] = img
 
         # Sample defect-focused patches half the time
-        defect_focus = np.random.rand() < 0.7
-        img_patch, mask_patch = self.extract_patch(img, mask, defect_focus=defect_focus)
+        defect_focus = np.random.rand() < self.defect_focus_rate
+        stacked_img_patches, mask_patch = self.extract_patches(stacked_img, mask, defect_focus=defect_focus)
 
         if self.transform:
             # Albumentations expects HWC
-            img_patch = img_patch.transpose(1, 2, 0).astype(np.float32)
+            #img_patch = img_patch.transpose(1, 2, 0).astype(np.float32)
+            stacked_img_patches = stacked_img_patches.transpose(1, 2, 0).astype(np.float32) # 512 512 6
             mask_patch = mask_patch.astype(np.uint8)
 
-            augmented = self.transform(image=img_patch, mask=mask_patch)
-            img_patch = augmented['image'].float().contiguous()
+            augmented = self.transform(image=stacked_img_patches, mask=mask_patch)
+             #
+            img_patch = augmented['image'].float().contiguous() #6 512 512
             mask_patch = augmented['mask'].long().contiguous()
         else:
-            img_patch = torch.tensor(img_patch.copy()).float().contiguous()
+            img_patch = torch.tensor(stacked_img_patches.copy()).float().contiguous() # 3 512 512
             mask_patch = torch.tensor(mask_patch.copy()).long().contiguous()
 
         assert img_patch.shape[-1] == self.patch_size

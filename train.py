@@ -16,7 +16,7 @@ from tqdm import tqdm
 import wandb
 from evaluate import evaluate
 from unet import UNet
-from unet.loss import WeightedBinaryCrossEntropyLoss, WeightedBinaryCrossEntropyLossGlobal
+from unet.loss import LoggingCriterionModule, WeightedBinaryCrossEntropyLoss, WeightedBinaryCrossEntropyLossGlobal
 from utils.data_loading import BasicDataset, CarvanaDataset, GemsyDataset, GemsySplitLoader
 from utils.dice_score import dice_loss
 
@@ -50,6 +50,7 @@ def train_model(
         weight_decay: float = 1e-8,
         momentum: float = 0.999,
         gradient_clipping: float = 1.0,
+        features = ["gt"]
 ):
     training_augmentation = A.Compose([
         A.HorizontalFlip(p=0.5),
@@ -92,9 +93,12 @@ def train_model(
     n_val = int(len(all_ids) * val_percent)
     n_train = len(all_ids) - n_val
 
+    # Additional params
+    train_defect_focus_rate = 0.7
+
     train_ids, val_ids = random_split(all_ids, [n_train, n_val], generator=torch.Generator().manual_seed(0))
-    train_set = GemsyDataset(dir_img, dir_mask, patch_size, patches_per_image, img_scale, transform=training_augmentation, ids=train_ids)
-    val_set = GemsyDataset(dir_img, dir_mask, patch_size, patches_per_image, img_scale, transform=None, ids=val_ids)
+    train_set = GemsyDataset(dir_img, dir_mask, patch_size, patches_per_image, img_scale, features=features, transform=training_augmentation, ids=train_ids, defect_focus_rate=train_defect_focus_rate)
+    val_set = GemsyDataset(dir_img, dir_mask, patch_size, patches_per_image, img_scale, features=features, transform=None, ids=val_ids)
 
     n_val = n_val * patches_per_image
     n_train = n_train * patches_per_image
@@ -109,11 +113,6 @@ def train_model(
 
     # (Initialize logging)
     experiment = wandb.init(project='U-Net', resume='allow', anonymous='must')
-    experiment.config.update(
-        dict(epochs=epochs, batch_size=batch_size, learning_rate=learning_rate,
-             val_percent=val_percent, save_checkpoint=save_checkpoint, img_scale=img_scale, amp=amp,
-             momentum=momentum,weight_decay=weight_decay)
-    )
 
     logging.info(f'''Starting training:
         Epochs:          {epochs}
@@ -141,16 +140,30 @@ def train_model(
     scheduler = optim.lr_scheduler.MultiplicativeLR(optimizer, lr_lambda=lambda epoch: 0.98)
     grad_scaler = torch.cuda.amp.GradScaler(enabled=amp)
 
-    defective = 6813187
-    non_defective = 1088686589
-    pos_weight = torch.tensor([non_defective / defective], device="cuda")  # ≈ 159.7
-    #criterion = nn.BCEWithLogitsLoss()#pos_weight=pos_weight)
+    # Binary Cross Entropy with Custom local Variance weighting and Dice loss
+    criterion = LoggingCriterionModule(criterion_name="BCELV+D", patch_size=31)
 
-    #criterion = nn.CrossEntropyLoss() if model.n_classes > 1 else nn.BCEWithLogitsLoss()
-    #criterion = WeightedBinaryCrossEntropyLoss(patch_size=31)
-    criterion = WeightedBinaryCrossEntropyLossGlobal()
-    #criterion = sigmoid_focal_loss #FocalLoss(gamma=0.7)
     global_step = 0
+
+    experiment.config.update(
+        dict(epochs=epochs, batch_size=batch_size, learning_rate=learning_rate,
+             val_percent=val_percent, save_checkpoint=save_checkpoint, img_scale=img_scale, amp=amp,
+             momentum=momentum,weight_decay=weight_decay,
+             criterion=criterion.print_criterion(),
+             criterion_params=criterion.print_params(),
+             augmentations=str(training_augmentation) if training_augmentation else 'None',
+             dataset_features=features,
+             train_defect_focus_rate = train_defect_focus_rate,
+             train_ids = train_ids.dataset,
+             val_ids = val_ids.dataset,
+             patch_size = patch_size,
+             patches_per_image = patches_per_image,
+             scheduler = "MultiplicativeLR",
+             scheduler_params= {"lr_lambda epoch": 0.98},
+             optimizer="SGD",
+             optimizer_params={"lr": learning_rate, "weight_decay": weight_decay, "momentum":momentum}
+             )
+    )
 
     # 5. Begin training
     for epoch in range(1, epochs + 1):
@@ -170,7 +183,9 @@ def train_model(
         iou = 0
         epoch_dice = 0
         with tqdm(total=n_train, desc=f'Epoch {epoch}/{epochs}', unit='img') as pbar:
+            batch_idx = 0
             for batch in train_loader:
+                batch_idx += 1
                 images, true_masks = batch['image'], batch['mask']
 
                 assert images.shape[1] == model.n_channels, \
@@ -184,12 +199,8 @@ def train_model(
                 with torch.autocast(device.type if device.type != 'mps' else 'cpu', enabled=amp):
                     masks_pred = model(images)
                     if model.n_classes == 1:
-                        loss = criterion(images, masks_pred.squeeze(1), true_masks.float()) # variance-based
-                        #loss = criterion(masks_pred.squeeze(1), true_masks.float()) # traditional
-                        dice_val = dice_loss(F.sigmoid(masks_pred.squeeze(1)), true_masks.float(), multiclass=False)
-                        loss += dice_val
-                        #loss = criterion(masks_pred.squeeze(1), true_masks.float(), reduction='mean')
-                        #loss = dice_loss(F.sigmoid(masks_pred.squeeze(1)), true_masks.float(), multiclass=False)
+                        criterion_loss, dice_loss = criterion.get_loss(images, masks_pred, true_masks)
+                        loss = criterion_loss + dice_loss
                         if torch.any(loss.isnan()) == True:
                             print("BAD TRAIN")
                     
@@ -213,9 +224,8 @@ def train_model(
                         FP_pxs += torch.sum(torch.logical_and(pred_defected_pxs, torch.logical_not(true_defected_pxs))).item()
                         FN_pxs += torch.sum(torch.logical_and(torch.logical_not(pred_defected_pxs), true_defected_pxs)).item()
 
-
-
                     else:
+                        raise Exception("Unimplemented multiple classes")
                         loss = criterion(masks_pred, true_masks)
                         loss += dice_loss(
                             F.softmax(masks_pred, dim=1).float(),
@@ -245,7 +255,7 @@ def train_model(
                 defected_rate_px = defected_pxs / (defected_pxs + non_defected_pxs+epsilon)
 
                 iou = TP_pxs / (TP_pxs + FP_pxs + FN_pxs + epsilon)
-                epoch_dice += dice_val.item()
+                epoch_dice += dice_loss.item()
                 experiment.log({
                     'train loss': loss.item(),
                     'step': global_step,
@@ -257,7 +267,8 @@ def train_model(
                     'epoch train pixel Accuracy': train_accuracy_px,
                     'epoch train defected pixel rate': defected_rate_px,
                     'epoch train IOU': iou,
-                    'epoch train DICE': epoch_dice / max(global_step%epoch, 1),
+                    'epoch train criterion loss': criterion_loss,
+                    'epoch train DICE': epoch_dice / batch_idx,
                 })
                 pbar.set_postfix(**{'loss (batch)': loss.item()})
 
@@ -342,7 +353,9 @@ if __name__ == '__main__':
     # Change here to adapt to your data
     # n_channels=3 for RGB images
     # n_classes is the number of probabilities you want to get per pixel
-    model = UNet(n_channels=3, n_classes=args.classes, bilinear=args.bilinear)
+    features = ["full", "opacity", "dbscan"]
+    n_channels = len(features) * 3
+    model = UNet(n_channels=n_channels, n_classes=args.classes, bilinear=args.bilinear)
     model = model.to(memory_format=torch.channels_last)
 
     logging.info(f'Network:\n'
@@ -368,7 +381,8 @@ if __name__ == '__main__':
             val_percent=args.val / 100,
             amp=args.amp,
             weight_decay=args.wd,
-            momentum=args.m
+            momentum=args.m,
+            features = features
         )
     except torch.cuda.OutOfMemoryError:
         logging.error('Detected OutOfMemoryError! '
@@ -386,5 +400,6 @@ if __name__ == '__main__':
             val_percent=args.val / 100,
             amp=args.amp,
             weight_decay=args.wd,
-            momentum=args.m
+            momentum=args.m,
+            features=features
         )
