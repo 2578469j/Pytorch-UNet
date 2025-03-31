@@ -4991,3 +4991,1858 @@ INFO: Validation Dice score: 0.17890328168869019
 INFO: Validation Dice score: 0.19876109063625336
 INFO: Validation Dice score: 0.2149227261543274
 INFO: Checkpoint 30 saved!
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Validation Dice score: 0.1909722238779068
+INFO: Validation Dice score: 0.1944444477558136
+INFO: Validation Dice score: 0.236111119389534
+INFO: Validation Dice score: 0.1909722238779068
+INFO: Validation Dice score: 0.1666666716337204
+INFO: Checkpoint 1 saved!
+INFO: Validation Dice score: 0.2083333283662796
+INFO: Validation Dice score: 0.21875
+INFO: Validation Dice score: 0.1770833283662796
+INFO: Validation Dice score: 0.1944444477558136
+INFO: Validation Dice score: 0.1909722238779068
+INFO: Checkpoint 2 saved!
+INFO: Validation Dice score: 0.1979166716337204
+INFO: Validation Dice score: 0.1458333283662796
+INFO: Validation Dice score: 0.1631944477558136
+INFO: Validation Dice score: 0.1909722238779068
+INFO: Validation Dice score: 0.2152777761220932
+INFO: Checkpoint 3 saved!
+INFO: Validation Dice score: 0.1805555522441864
+INFO: Validation Dice score: 0.1284722238779068
+INFO: Validation Dice score: 0.1631944477558136
+INFO: Validation Dice score: 0.173611119389534
+INFO: Validation Dice score: 0.31968259811401367
+INFO: Checkpoint 4 saved!
+INFO: Validation Dice score: 0.173611119389534
+INFO: Validation Dice score: 0.1840277761220932
+INFO: Validation Dice score: 0.1631944477558136
+INFO: Validation Dice score: 0.1701388955116272
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Validation Dice score: 2.1487799040098565e-10
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Validation Dice score: 2.2204241223455767e-10
+INFO: Validation Dice score: 2.1323454113542084e-10
+INFO: Validation Dice score: 2.2227926443907364e-10
+INFO: Validation Dice score: 2.2053171788716242e-10
+INFO: Validation Dice score: 2.3665366888359074e-10
+INFO: Checkpoint 1 saved!
+INFO: Validation Dice score: 2.1921096882149271e-10
+INFO: Validation Dice score: 2.329205994744399e-10
+INFO: Validation Dice score: 2.2526457088556384e-10
+INFO: Validation Dice score: 2.399738741054591e-10
+INFO: Validation Dice score: 2.199886245390914e-10
+INFO: Checkpoint 2 saved!
+INFO: Validation Dice score: 2.1478246958750447e-10
+INFO: Validation Dice score: 2.1320474552499746e-10
+INFO: Validation Dice score: 2.1640708669501407e-10
+INFO: Validation Dice score: 2.2279618427933912e-10
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Validation Dice score: 2.164085716183095e-10
+INFO: Validation Dice score: 2.434976387188925e-10
+INFO: Validation Dice score: 2.235985285814479e-10
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          30
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Validation Dice score: 1.9016009600303363e-10
+INFO: Validation Dice score: 2.1951591933078163e-10
+INFO: Validation Dice score: 2.2572226032746556e-10
+INFO: Validation Dice score: 1.9682425134170956e-10
+INFO: Validation Dice score: 2.247862451731919e-10
+INFO: Checkpoint 1 saved!
+INFO: Validation Dice score: 2.3607032995087707e-10
+INFO: Validation Dice score: 2.2399539167938798e-10
+INFO: Validation Dice score: 2.0955452650905926e-10
+INFO: Validation Dice score: 2.2968481283580644e-10
+INFO: Validation Dice score: 0.035491038113832474
+INFO: Checkpoint 2 saved!
+INFO: Validation Dice score: 2.268965570983994e-10
+INFO: Validation Dice score: 2.1379666093057637e-10
+INFO: Validation Dice score: 2.0559398627995051e-10
+INFO: Validation Dice score: 2.3689947226124275e-10
+INFO: Validation Dice score: 2.3343527573160827e-06
+INFO: Checkpoint 3 saved!
+INFO: Validation Dice score: 0.05246565863490105
+INFO: Validation Dice score: 2.2847475300569187e-10
+INFO: Validation Dice score: 2.260446690938167e-10
+INFO: Validation Dice score: 2.1837119612566624e-10
+INFO: Validation Dice score: 2.1987740794759958e-10
+INFO: Checkpoint 4 saved!
+INFO: Validation Dice score: 0.006496349349617958
+INFO: Validation Dice score: 2.1153992446620862e-10
+INFO: Validation Dice score: 0.010587899014353752
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          60
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Validation Dice score: 2.2826991685764852e-10
+INFO: Validation Dice score: 2.2096226237611205e-10
+INFO: Validation Dice score: 2.0681345525019879e-10
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          60
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          60
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Validation Dice score: 2.3223648004666586e-10
+INFO: Validation Dice score: 2.2598910243143422e-10
+INFO: Validation Dice score: 2.3719923247789154e-10
+INFO: Validation Dice score: 2.2819326983558597e-10
+INFO: Validation Dice score: 2.2775943631092588e-10
+INFO: Checkpoint 1 saved!
+INFO: Validation Dice score: 1.9699443465359678e-10
+INFO: Validation Dice score: 2.3627580447715957e-10
+INFO: Validation Dice score: 2.3921220559941503e-10
+INFO: Validation Dice score: 2.2715469782941256e-10
+INFO: Validation Dice score: 2.2960328083243553e-10
+INFO: Checkpoint 2 saved!
+INFO: Validation Dice score: 2.1039421593815888e-10
+INFO: Validation Dice score: 2.2340236605078445e-10
+INFO: Validation Dice score: 2.2424909151830263e-10
+INFO: Validation Dice score: 2.0804834244270154e-10
+INFO: Validation Dice score: 2.1861019938729243e-10
+INFO: Checkpoint 3 saved!
+INFO: Validation Dice score: 2.3299159823686466e-10
+INFO: Validation Dice score: 2.2831732338080002e-10
+INFO: Validation Dice score: 2.071246091306378e-10
+INFO: Validation Dice score: 0.07890073210000992
+INFO: Validation Dice score: 2.1067299293964226e-10
+INFO: Checkpoint 4 saved!
+INFO: Validation Dice score: 2.1752440126920902e-10
+INFO: Validation Dice score: 2.0969663505621128e-10
+INFO: Validation Dice score: 2.194801701493887e-10
+INFO: Validation Dice score: 2.2430038382204032e-10
+INFO: Validation Dice score: 2.2565389834472427e-10
+INFO: Checkpoint 5 saved!
+INFO: Validation Dice score: 0.0003372794599272311
+INFO: Validation Dice score: 0.05217411741614342
+INFO: Validation Dice score: 0.001196345780044794
+INFO: Validation Dice score: 0.03254465386271477
+INFO: Validation Dice score: 0.0005154482205398381
+INFO: Checkpoint 6 saved!
+INFO: Validation Dice score: 0.09463349729776382
+INFO: Validation Dice score: 2.312336988552488e-10
+INFO: Validation Dice score: 0.0006251338054426014
+INFO: Validation Dice score: 6.475145346485078e-05
+INFO: Validation Dice score: 0.0015248723793774843
+INFO: Checkpoint 7 saved!
+INFO: Validation Dice score: 0.00028838671278208494
+INFO: Validation Dice score: 0.013424594886600971
+INFO: Validation Dice score: 0.0006006070761941373
+INFO: Validation Dice score: 0.02200762927532196
+INFO: Validation Dice score: 0.0003681795787997544
+INFO: Checkpoint 8 saved!
+INFO: Validation Dice score: 4.588140291161835e-05
+INFO: Validation Dice score: 0.0003263331891503185
+INFO: Validation Dice score: 0.00019579923537094146
+INFO: Validation Dice score: 0.0030481270514428616
+INFO: Validation Dice score: 0.0670066550374031
+INFO: Checkpoint 9 saved!
+INFO: Validation Dice score: 0.002881851978600025
+INFO: Validation Dice score: 0.019122574478387833
+INFO: Validation Dice score: 0.0070322612300515175
+INFO: Validation Dice score: 0.11452052742242813
+INFO: Validation Dice score: 0.03434692695736885
+INFO: Checkpoint 10 saved!
+INFO: Validation Dice score: 0.07847217470407486
+INFO: Validation Dice score: 0.0012841335264965892
+INFO: Validation Dice score: 0.07492978870868683
+INFO: Validation Dice score: 0.0003675479965750128
+INFO: Validation Dice score: 0.001035371795296669
+INFO: Checkpoint 11 saved!
+INFO: Validation Dice score: 0.023794138804078102
+INFO: Validation Dice score: 0.06024421751499176
+INFO: Validation Dice score: 0.006513349246233702
+INFO: Validation Dice score: 0.03431497886776924
+INFO: Validation Dice score: 0.0016160695813596249
+INFO: Checkpoint 12 saved!
+INFO: Validation Dice score: 0.11727292090654373
+INFO: Validation Dice score: 0.02973024733364582
+INFO: Validation Dice score: 0.006885868962854147
+INFO: Validation Dice score: 0.005649948958307505
+INFO: Validation Dice score: 0.013973084278404713
+INFO: Checkpoint 13 saved!
+INFO: Validation Dice score: 0.00705204252153635
+INFO: Validation Dice score: 0.08271877467632294
+INFO: Validation Dice score: 0.002405838342383504
+INFO: Validation Dice score: 0.005076815839856863
+INFO: Validation Dice score: 0.016696467995643616
+INFO: Checkpoint 14 saved!
+INFO: Validation Dice score: 0.010501830838620663
+INFO: Validation Dice score: 0.031374771147966385
+INFO: Validation Dice score: 0.0005519982078112662
+INFO: Validation Dice score: 0.0015956623246893287
+INFO: Validation Dice score: 0.004208954516798258
+INFO: Checkpoint 15 saved!
+INFO: Validation Dice score: 0.00047436842578463256
+INFO: Validation Dice score: 0.06195531412959099
+INFO: Validation Dice score: 0.004549933597445488
+INFO: Validation Dice score: 0.0007546819979324937
+INFO: Validation Dice score: 0.02413502335548401
+INFO: Checkpoint 16 saved!
+INFO: Validation Dice score: 0.0013961555669084191
+INFO: Validation Dice score: 0.09543278068304062
+INFO: Validation Dice score: 0.0577634759247303
+INFO: Validation Dice score: 0.0007143088732846081
+INFO: Validation Dice score: 0.004541744012385607
+INFO: Checkpoint 17 saved!
+INFO: Validation Dice score: 0.00044641949352808297
+INFO: Validation Dice score: 0.024723591282963753
+INFO: Validation Dice score: 0.08059298992156982
+INFO: Validation Dice score: 0.019017260521650314
+INFO: Validation Dice score: 0.08136545121669769
+INFO: Checkpoint 18 saved!
+INFO: Validation Dice score: 0.025800809264183044
+INFO: Validation Dice score: 0.023610448464751244
+INFO: Validation Dice score: 0.09448175877332687
+INFO: Validation Dice score: 0.015668721869587898
+INFO: Validation Dice score: 0.0009123508352786303
+INFO: Checkpoint 19 saved!
+INFO: Validation Dice score: 0.006788050755858421
+INFO: Validation Dice score: 0.04454655572772026
+INFO: Validation Dice score: 0.010133985430002213
+INFO: Validation Dice score: 0.08944965153932571
+INFO: Validation Dice score: 0.05701117962598801
+INFO: Checkpoint 20 saved!
+INFO: Validation Dice score: 0.0605337880551815
+INFO: Validation Dice score: 0.022732967510819435
+INFO: Validation Dice score: 0.11185719072818756
+INFO: Validation Dice score: 0.03818824514746666
+INFO: Validation Dice score: 0.021798711270093918
+INFO: Checkpoint 21 saved!
+INFO: Validation Dice score: 0.027473092079162598
+INFO: Validation Dice score: 0.033110134303569794
+INFO: Validation Dice score: 0.07666316628456116
+INFO: Validation Dice score: 0.05639456957578659
+INFO: Validation Dice score: 0.012177828699350357
+INFO: Checkpoint 22 saved!
+INFO: Validation Dice score: 0.00893694069236517
+INFO: Validation Dice score: 0.012676525861024857
+INFO: Validation Dice score: 0.1390414983034134
+INFO: Validation Dice score: 0.07368602603673935
+INFO: Validation Dice score: 0.05565614253282547
+INFO: Checkpoint 23 saved!
+INFO: Validation Dice score: 0.02437409944832325
+INFO: Validation Dice score: 0.029392892494797707
+INFO: Validation Dice score: 0.010841142386198044
+INFO: Validation Dice score: 0.14628885686397552
+INFO: Validation Dice score: 0.018435969948768616
+INFO: Checkpoint 24 saved!
+INFO: Validation Dice score: 0.11894333362579346
+INFO: Validation Dice score: 0.13115189969539642
+INFO: Validation Dice score: 0.08215366303920746
+INFO: Validation Dice score: 0.10729692131280899
+INFO: Validation Dice score: 2.0430254710213092e-10
+INFO: Checkpoint 25 saved!
+INFO: Validation Dice score: 2.1483503864772047e-10
+INFO: Validation Dice score: 2.2967186485978175e-10
+INFO: Validation Dice score: 2.2112667252827123e-10
+INFO: Validation Dice score: 2.1164704711029714e-10
+INFO: Validation Dice score: 2.2418726597361882e-10
+INFO: Checkpoint 26 saved!
+INFO: Validation Dice score: 2.124051351470868e-10
+INFO: Validation Dice score: 2.0711472814571863e-10
+INFO: Validation Dice score: 2.1802702698803245e-10
+INFO: Validation Dice score: 2.1839853536764764e-10
+INFO: Validation Dice score: 2.1587658050048475e-10
+INFO: Checkpoint 27 saved!
+INFO: Validation Dice score: 2.0601054195878987e-10
+INFO: Validation Dice score: 2.279766514456938e-10
+INFO: Validation Dice score: 2.2512465502888546e-10
+INFO: Validation Dice score: 2.2487525730419122e-10
+INFO: Validation Dice score: 2.2328976168051184e-10
+INFO: Checkpoint 28 saved!
+INFO: Validation Dice score: 2.2220898732161487e-10
+INFO: Validation Dice score: 2.2478796601888007e-10
+INFO: Validation Dice score: 2.1137398775739058e-10
+INFO: Validation Dice score: 2.486323091854814e-10
+INFO: Validation Dice score: 2.2499789531504888e-10
+INFO: Checkpoint 29 saved!
+INFO: Validation Dice score: 2.1186911947079778e-10
+INFO: Validation Dice score: 2.2062184024118636e-10
+INFO: Validation Dice score: 2.114658587126783e-10
+INFO: Validation Dice score: 2.14960646505169e-10
+INFO: Validation Dice score: 2.259418346861608e-10
+INFO: Checkpoint 30 saved!
+INFO: Validation Dice score: 2.198843607192913e-10
+INFO: Validation Dice score: 2.101704782431213e-10
+INFO: Validation Dice score: 2.382338493145397e-10
+INFO: Validation Dice score: 2.3086370315450466e-10
+INFO: Validation Dice score: 2.14453441116369e-10
+INFO: Checkpoint 31 saved!
+INFO: Validation Dice score: 2.201710203042495e-10
+INFO: Validation Dice score: 2.1693200014105685e-10
+INFO: Validation Dice score: 2.1679867623358717e-10
+INFO: Validation Dice score: 2.0849594273286698e-10
+INFO: Validation Dice score: 2.077657351717832e-10
+INFO: Checkpoint 32 saved!
+INFO: Validation Dice score: 2.0704234160451307e-10
+INFO: Validation Dice score: 2.1798578220266762e-10
+INFO: Validation Dice score: 2.238510626861867e-10
+INFO: Validation Dice score: 2.1912067993401507e-10
+INFO: Validation Dice score: 2.0312496129548663e-10
+INFO: Checkpoint 33 saved!
+INFO: Validation Dice score: 2.2215972117489713e-10
+INFO: Validation Dice score: 2.0738381845131215e-10
+INFO: Validation Dice score: 2.1154740459383703e-10
+INFO: Validation Dice score: 2.309689245416635e-10
+INFO: Validation Dice score: 2.2462938453760017e-10
+INFO: Checkpoint 34 saved!
+INFO: Validation Dice score: 2.0245460863321796e-10
+INFO: Validation Dice score: 1.941943966743409e-10
+INFO: Validation Dice score: 2.4442509127808876e-10
+INFO: Validation Dice score: 2.242936253393779e-10
+INFO: Validation Dice score: 2.3131137283360914e-10
+INFO: Checkpoint 35 saved!
+INFO: Validation Dice score: 2.2952889588978564e-10
+INFO: Validation Dice score: 2.1690750584557605e-10
+INFO: Validation Dice score: 1.9567288067623423e-10
+INFO: Validation Dice score: 2.1007005857054395e-10
+INFO: Validation Dice score: 2.1925147808410372e-10
+INFO: Checkpoint 36 saved!
+INFO: Validation Dice score: 2.1798264582262306e-10
+INFO: Validation Dice score: 2.2537401112021627e-10
+INFO: Validation Dice score: 2.1480985046284928e-10
+INFO: Validation Dice score: 2.0166696090839764e-10
+INFO: Validation Dice score: 2.2833357427032297e-10
+INFO: Checkpoint 37 saved!
+INFO: Validation Dice score: 2.2187772452664234e-10
+INFO: Validation Dice score: 2.2634610852279025e-10
+INFO: Validation Dice score: 2.2462123827615699e-10
+INFO: Validation Dice score: 2.098621970647585e-10
+INFO: Validation Dice score: 2.2086937834231435e-10
+INFO: Checkpoint 38 saved!
+INFO: Validation Dice score: 2.4407881271670817e-10
+INFO: Validation Dice score: 2.3812199434480874e-10
+INFO: Validation Dice score: 2.415605770966778e-10
+INFO: Validation Dice score: 2.2776149022352143e-10
+INFO: Validation Dice score: 2.2944005029224002e-10
+INFO: Checkpoint 39 saved!
+INFO: Validation Dice score: 2.1786449033722732e-10
+INFO: Validation Dice score: 2.453615643993601e-10
+INFO: Validation Dice score: 2.1202058164693227e-10
+INFO: Validation Dice score: 2.49257753326404e-10
+INFO: Validation Dice score: 2.1886613355004414e-10
+INFO: Checkpoint 40 saved!
+INFO: Validation Dice score: 2.257173475905816e-10
+INFO: Validation Dice score: 2.0889549812164177e-10
+INFO: Validation Dice score: 2.2975300828509404e-10
+INFO: Validation Dice score: 2.2554982881395347e-10
+INFO: Validation Dice score: 2.2668618371302074e-10
+INFO: Checkpoint 41 saved!
+INFO: Validation Dice score: 2.1749177459007285e-10
+INFO: Validation Dice score: 2.2455878823102182e-10
+INFO: Validation Dice score: 2.1248720838418222e-10
+INFO: Validation Dice score: 2.2947542477336214e-10
+INFO: Validation Dice score: 2.246487718071677e-10
+INFO: Checkpoint 42 saved!
+INFO: Validation Dice score: 2.2476516481351183e-10
+INFO: Validation Dice score: 2.5143162551977127e-10
+INFO: Validation Dice score: 2.1968560304230778e-10
+INFO: Validation Dice score: 2.41971220837911e-10
+INFO: Validation Dice score: 2.1739261779618602e-10
+INFO: Checkpoint 43 saved!
+INFO: Validation Dice score: 2.209087218707495e-10
+INFO: Validation Dice score: 2.107123364680774e-10
+INFO: Validation Dice score: 2.155866596353917e-10
+INFO: Validation Dice score: 2.3247993807817835e-10
+INFO: Validation Dice score: 2.505682050735203e-10
+INFO: Checkpoint 44 saved!
+INFO: Validation Dice score: 2.1460914989557267e-10
+INFO: Validation Dice score: 2.2702144331088192e-10
+INFO: Validation Dice score: 2.2980785330251052e-10
+INFO: Validation Dice score: 2.1241468306509859e-10
+INFO: Validation Dice score: 2.091532641523841e-10
+INFO: Checkpoint 45 saved!
+INFO: Validation Dice score: 2.055996484173761e-10
+INFO: Validation Dice score: 2.2376799024836913e-10
+INFO: Validation Dice score: 2.2206328442742063e-10
+INFO: Validation Dice score: 2.1577735431765888e-10
+INFO: Validation Dice score: 2.1509924397200564e-10
+INFO: Checkpoint 46 saved!
+INFO: Validation Dice score: 2.3049115394080388e-10
+INFO: Validation Dice score: 2.172222679508451e-10
+INFO: Validation Dice score: 2.2554869083535323e-10
+INFO: Validation Dice score: 2.2828805512631334e-10
+INFO: Validation Dice score: 2.2606354288523534e-10
+INFO: Checkpoint 47 saved!
+INFO: Validation Dice score: 2.328501003123762e-10
+INFO: Validation Dice score: 2.2484106243503277e-10
+INFO: Validation Dice score: 2.4069704562812433e-10
+INFO: Validation Dice score: 2.2916325781441316e-10
+INFO: Validation Dice score: 2.3170905472102987e-10
+INFO: Checkpoint 48 saved!
+INFO: Validation Dice score: 2.0773345543734223e-10
+INFO: Validation Dice score: 1.982829039848255e-10
+INFO: Validation Dice score: 2.1759641311014377e-10
+INFO: Validation Dice score: 2.274776200739126e-10
+INFO: Validation Dice score: 2.1658591586870557e-10
+INFO: Checkpoint 49 saved!
+INFO: Validation Dice score: 2.458226122659113e-10
+INFO: Validation Dice score: 2.3119575698338224e-10
+INFO: Validation Dice score: 2.2879007022247322e-10
+INFO: Validation Dice score: 2.1861344678963945e-10
+INFO: Validation Dice score: 2.1656247628509817e-10
+INFO: Checkpoint 50 saved!
+INFO: Validation Dice score: 2.1530538463210291e-10
+INFO: Validation Dice score: 2.404440813119635e-10
+INFO: Validation Dice score: 2.050070113668312e-10
+INFO: Validation Dice score: 2.2456062009901245e-10
+INFO: Validation Dice score: 2.2200313809506156e-10
+INFO: Checkpoint 51 saved!
+INFO: Validation Dice score: 2.2194519833096393e-10
+INFO: Validation Dice score: 2.1205195932516574e-10
+INFO: Validation Dice score: 2.2786826592291476e-10
+INFO: Validation Dice score: 2.2208077044005847e-10
+INFO: Validation Dice score: 2.274245514133355e-10
+INFO: Checkpoint 52 saved!
+INFO: Validation Dice score: 2.456194692079805e-10
+INFO: Validation Dice score: 2.1957832774255337e-10
+INFO: Validation Dice score: 2.2505526608984638e-10
+INFO: Validation Dice score: 2.090493750328548e-10
+INFO: Validation Dice score: 1.9458765154745095e-10
+INFO: Checkpoint 53 saved!
+INFO: Validation Dice score: 2.265063969719705e-10
+INFO: Validation Dice score: 2.3583660024861786e-10
+INFO: Validation Dice score: 2.324905268302757e-10
+INFO: Validation Dice score: 2.1086773993594932e-10
+INFO: Validation Dice score: 2.2464280435841033e-10
+INFO: Checkpoint 54 saved!
+INFO: Validation Dice score: 2.0514780152414147e-10
+INFO: Validation Dice score: 2.375259433584631e-10
+INFO: Validation Dice score: 2.0542219314467758e-10
+INFO: Validation Dice score: 2.191881953717001e-10
+INFO: Validation Dice score: 2.6119609253250076e-10
+INFO: Checkpoint 55 saved!
+INFO: Validation Dice score: 2.1903555358360194e-10
+INFO: Validation Dice score: 2.443313606992348e-10
+INFO: Validation Dice score: 2.1230309177333595e-10
+INFO: Validation Dice score: 2.2841646629689905e-10
+INFO: Validation Dice score: 2.2301015201176e-10
+INFO: Checkpoint 56 saved!
+INFO: Validation Dice score: 2.2288533518821652e-10
+INFO: Validation Dice score: 2.2299767588052077e-10
+INFO: Validation Dice score: 2.0970800096442588e-10
+INFO: Validation Dice score: 2.1452356557816188e-10
+INFO: Validation Dice score: 2.161515688658966e-10
+INFO: Checkpoint 57 saved!
+INFO: Validation Dice score: 2.0984609883090144e-10
+INFO: Validation Dice score: 2.199037063554954e-10
+INFO: Validation Dice score: 2.1736654143289513e-10
+INFO: Validation Dice score: 2.31342722756267e-10
+INFO: Validation Dice score: 2.4434032575015863e-10
+INFO: Checkpoint 58 saved!
+INFO: Validation Dice score: 2.0698161240506607e-10
+INFO: Validation Dice score: 2.130476350892252e-10
+INFO: Validation Dice score: 2.157738432373435e-10
+INFO: Validation Dice score: 2.2930692067379965e-10
+INFO: Validation Dice score: 2.497035633819422e-10
+INFO: Checkpoint 59 saved!
+INFO: Validation Dice score: 2.0929527555502148e-10
+INFO: Validation Dice score: 2.511814090055964e-10
+INFO: Validation Dice score: 2.3259755232984958e-10
+INFO: Validation Dice score: 2.1406283690073025e-10
+INFO: Validation Dice score: 2.3524449055400964e-10
+INFO: Checkpoint 60 saved!
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          60
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Validation Dice score: 2.1169116459773818e-10
+INFO: Validation Dice score: 1.9541998574901243e-10
+INFO: Validation Dice score: 2.1476519174168374e-10
+INFO: Validation Dice score: 2.1337455413661388e-10
+INFO: Validation Dice score: 2.254713915572637e-10
+INFO: Checkpoint 1 saved!
+INFO: Validation Dice score: 2.2154925116701918e-10
+INFO: Validation Dice score: 2.1327418997518777e-10
+INFO: Validation Dice score: 2.2389921860987982e-10
+INFO: Validation Dice score: 2.2564546064973712e-10
+INFO: Validation Dice score: 2.1811399908422402e-10
+INFO: Checkpoint 2 saved!
+INFO: Validation Dice score: 2.3094202938889197e-10
+INFO: Validation Dice score: 2.3226687240196497e-10
+INFO: Validation Dice score: 0.08935795724391937
+INFO: Validation Dice score: 1.9748028212696056e-10
+INFO: Validation Dice score: 2.101534501974811e-10
+INFO: Checkpoint 3 saved!
+INFO: Validation Dice score: 0.009552964009344578
+INFO: Validation Dice score: 2.2274276867406684e-10
+INFO: Validation Dice score: 0.0005633176187984645
+INFO: Validation Dice score: 2.325680897863336e-10
+INFO: Validation Dice score: 1.9936596817871077e-10
+INFO: Checkpoint 4 saved!
+INFO: Validation Dice score: 0.01873806118965149
+INFO: Validation Dice score: 1.7332415154669434e-05
+INFO: Validation Dice score: 2.2091391216338963e-10
+INFO: Validation Dice score: 2.4007584809027094e-10
+INFO: Validation Dice score: 0.000771410996094346
+INFO: Checkpoint 5 saved!
+INFO: Validation Dice score: 0.024776114150881767
+INFO: Validation Dice score: 0.011768663302063942
+INFO: Validation Dice score: 0.005659356247633696
+INFO: Validation Dice score: 0.00015321336104534566
+INFO: Validation Dice score: 2.3636509416391505e-10
+INFO: Checkpoint 6 saved!
+INFO: Validation Dice score: 0.0014944085851311684
+INFO: Validation Dice score: 2.2099140573050846e-10
+INFO: Validation Dice score: 0.0017901487881317735
+INFO: Validation Dice score: 0.00214374833740294
+INFO: Validation Dice score: 0.023350000381469727
+INFO: Checkpoint 7 saved!
+INFO: Validation Dice score: 2.3495966283704206e-10
+INFO: Validation Dice score: 0.0002471848565619439
+INFO: Validation Dice score: 0.00012737982615362853
+INFO: Validation Dice score: 0.07231084257364273
+INFO: Validation Dice score: 2.2163794410889892e-10
+INFO: Checkpoint 8 saved!
+INFO: Validation Dice score: 0.023738086223602295
+INFO: Validation Dice score: 0.006431650836020708
+INFO: Validation Dice score: 0.004408062901347876
+INFO: Validation Dice score: 0.013756407424807549
+INFO: Validation Dice score: 0.012022954411804676
+INFO: Checkpoint 9 saved!
+INFO: Validation Dice score: 5.488011993293185e-06
+INFO: Validation Dice score: 0.017220376059412956
+INFO: Validation Dice score: 0.0007619664538651705
+INFO: Validation Dice score: 0.0021346246358007193
+INFO: Validation Dice score: 5.959729242022149e-05
+INFO: Checkpoint 10 saved!
+INFO: Validation Dice score: 0.0001858617615653202
+INFO: Validation Dice score: 0.010402802377939224
+INFO: Validation Dice score: 0.013162383809685707
+INFO: Validation Dice score: 0.03601955622434616
+INFO: Validation Dice score: 0.01890556327998638
+INFO: Checkpoint 11 saved!
+INFO: Validation Dice score: 0.02385537512600422
+INFO: Validation Dice score: 0.06270243972539902
+INFO: Validation Dice score: 0.028077781200408936
+INFO: Validation Dice score: 0.020706215873360634
+INFO: Validation Dice score: 0.010288495570421219
+INFO: Checkpoint 12 saved!
+INFO: Validation Dice score: 0.046267881989479065
+INFO: Validation Dice score: 0.004539822693914175
+INFO: Validation Dice score: 0.001995574915781617
+INFO: Validation Dice score: 0.05580049753189087
+INFO: Validation Dice score: 0.039450787007808685
+INFO: Checkpoint 13 saved!
+INFO: Validation Dice score: 0.07182345539331436
+INFO: Validation Dice score: 0.1316932737827301
+INFO: Validation Dice score: 0.013284966349601746
+INFO: Validation Dice score: 0.034219302237033844
+INFO: Validation Dice score: 0.023684505373239517
+INFO: Checkpoint 14 saved!
+INFO: Validation Dice score: 0.055075038224458694
+INFO: Validation Dice score: 0.0586310438811779
+INFO: Validation Dice score: 0.024856725707650185
+INFO: Validation Dice score: 0.011531663127243519
+INFO: Validation Dice score: 0.0110772754997015
+INFO: Checkpoint 15 saved!
+INFO: Validation Dice score: 0.053766846656799316
+INFO: Validation Dice score: 0.028109660372138023
+INFO: Validation Dice score: 0.008726974949240685
+INFO: Validation Dice score: 0.07432962208986282
+INFO: Validation Dice score: 0.012377732433378696
+INFO: Checkpoint 16 saved!
+INFO: Validation Dice score: 0.007557193282991648
+INFO: Validation Dice score: 0.07571738213300705
+INFO: Validation Dice score: 0.04410353675484657
+INFO: Validation Dice score: 0.019914207980036736
+INFO: Validation Dice score: 0.05410344898700714
+INFO: Checkpoint 17 saved!
+INFO: Validation Dice score: 0.017544856294989586
+INFO: Validation Dice score: 0.044037800282239914
+INFO: Validation Dice score: 0.03724542632699013
+INFO: Validation Dice score: 0.018687136471271515
+INFO: Validation Dice score: 0.020100831985473633
+INFO: Checkpoint 18 saved!
+INFO: Validation Dice score: 0.023344947025179863
+INFO: Validation Dice score: 0.010754589922726154
+INFO: Validation Dice score: 0.010903224349021912
+INFO: Validation Dice score: 0.04761923477053642
+INFO: Validation Dice score: 0.10337255150079727
+INFO: Checkpoint 19 saved!
+INFO: Validation Dice score: 0.017756106331944466
+INFO: Validation Dice score: 0.010278774425387383
+INFO: Validation Dice score: 0.022129593417048454
+INFO: Validation Dice score: 0.10406703501939774
+INFO: Validation Dice score: 0.036312807351350784
+INFO: Checkpoint 20 saved!
+INFO: Validation Dice score: 0.04068141058087349
+INFO: Validation Dice score: 0.04949156567454338
+INFO: Validation Dice score: 0.05627737566828728
+INFO: Validation Dice score: 0.026235613971948624
+INFO: Validation Dice score: 0.10443063080310822
+INFO: Checkpoint 21 saved!
+INFO: Validation Dice score: 0.017773816362023354
+INFO: Validation Dice score: 0.048309940844774246
+INFO: Validation Dice score: 0.06137657165527344
+INFO: Validation Dice score: 0.03039967082440853
+INFO: Validation Dice score: 0.010592308826744556
+INFO: Checkpoint 22 saved!
+INFO: Validation Dice score: 0.07992920279502869
+INFO: Validation Dice score: 0.13496914505958557
+INFO: Validation Dice score: 0.09048089385032654
+INFO: Validation Dice score: 0.04783477261662483
+INFO: Validation Dice score: 0.009003889746963978
+INFO: Checkpoint 23 saved!
+INFO: Validation Dice score: 0.06375841796398163
+INFO: Validation Dice score: 0.1034456193447113
+INFO: Validation Dice score: 0.05829562246799469
+INFO: Validation Dice score: 0.01893184892833233
+INFO: Validation Dice score: 0.0826675072312355
+INFO: Checkpoint 24 saved!
+INFO: Validation Dice score: 0.06027328222990036
+INFO: Validation Dice score: 0.03708237409591675
+INFO: Validation Dice score: 0.058215849101543427
+INFO: Validation Dice score: 0.00034402584424242377
+INFO: Validation Dice score: 0.08549528568983078
+INFO: Checkpoint 25 saved!
+INFO: Validation Dice score: 0.016286350786685944
+INFO: Validation Dice score: 0.008463181555271149
+INFO: Validation Dice score: 0.04349531605839729
+INFO: Validation Dice score: 0.030727488920092583
+INFO: Validation Dice score: 0.10398037731647491
+INFO: Checkpoint 26 saved!
+INFO: Validation Dice score: 0.10215086489915848
+INFO: Validation Dice score: 0.014408986084163189
+INFO: Validation Dice score: 0.0376734621822834
+INFO: Validation Dice score: 0.014568368904292583
+INFO: Validation Dice score: 0.008667271584272385
+INFO: Checkpoint 27 saved!
+INFO: Validation Dice score: 0.013733011670410633
+INFO: Validation Dice score: 0.09888393431901932
+INFO: Validation Dice score: 0.06766382604837418
+INFO: Validation Dice score: 0.0036993001122027636
+INFO: Validation Dice score: 0.04909858480095863
+INFO: Checkpoint 28 saved!
+INFO: Validation Dice score: 0.03326164558529854
+INFO: Validation Dice score: 0.004249853082001209
+INFO: Validation Dice score: 0.07699280977249146
+INFO: Validation Dice score: 0.08175245672464371
+INFO: Validation Dice score: 0.08623969554901123
+INFO: Checkpoint 29 saved!
+INFO: Validation Dice score: 0.10521894693374634
+INFO: Validation Dice score: 0.061264846473932266
+INFO: Validation Dice score: 0.035059213638305664
+INFO: Validation Dice score: 0.08151670545339584
+INFO: Validation Dice score: 0.03491593897342682
+INFO: Checkpoint 30 saved!
+INFO: Validation Dice score: 0.014966736547648907
+INFO: Validation Dice score: 0.012766292318701744
+INFO: Validation Dice score: 0.016276247799396515
+INFO: Validation Dice score: 0.06169130280613899
+INFO: Validation Dice score: 0.034591078758239746
+INFO: Checkpoint 31 saved!
+INFO: Validation Dice score: 0.06692817062139511
+INFO: Validation Dice score: 0.06598452478647232
+INFO: Validation Dice score: 0.030418671667575836
+INFO: Validation Dice score: 0.02916381135582924
+INFO: Validation Dice score: 0.0348271019756794
+INFO: Checkpoint 32 saved!
+INFO: Validation Dice score: 0.10431719571352005
+INFO: Validation Dice score: 0.05073373392224312
+INFO: Validation Dice score: 0.10055083781480789
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          60
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Validation Dice score: 0.1527777761220932
+INFO: Validation Dice score: 0.2013888955116272
+INFO: Validation Dice score: 0.1666666716337204
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          60
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Validation Dice score: 0.1770833283662796
+INFO: Using device cuda
+INFO: Network:
+	9 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 3600 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Scanning mask files to determine unique values
+INFO: Creating dataset with 300 examples
+INFO: Unique mask values: {'dot': [237, 28, 36], 'scratch': [255, 127, 39], 'crack': [255, 242, 0], 'smudge': [63, 72, 204], 'surfaceImperfection': [185, 122, 87], 'missingGlass': [136, 0, 21], 'camera': [181, 230, 29], 'border': [255, 174, 201], 'intBorder': [112, 146, 190], 'button': [34, 177, 76], 'phoneFeat': [153, 217, 234], 'speaker': [200, 191, 231]}
+INFO: Starting training:
+        Epochs:          60
+        Batch size:      16
+        Learning rate:   0.03
+        Training size:   3600
+        Validation size: 300
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  1
+        Mixed Precision: False
+    
+INFO: Validation Dice score: 0.1909722238779068
+INFO: Validation Dice score: 0.21875
+INFO: Validation Dice score: 0.21875
+INFO: Validation Dice score: 0.1909722238779068
+INFO: Validation Dice score: 0.1701388955116272
+INFO: Checkpoint 1 saved!
+INFO: Validation Dice score: 0.2152777761220932
+INFO: Validation Dice score: 0.1909722238779068
+INFO: Validation Dice score: 0.2222222238779068
+INFO: Validation Dice score: 0.2118055522441864
+INFO: Validation Dice score: 0.1979166716337204
+INFO: Checkpoint 2 saved!
+INFO: Validation Dice score: 0.2083333283662796
+INFO: Validation Dice score: 0.2291666716337204
+INFO: Validation Dice score: 0.1701388955116272
+INFO: Validation Dice score: 0.2118055522441864
+INFO: Validation Dice score: 0.1840277761220932
+INFO: Checkpoint 3 saved!
+INFO: Validation Dice score: 0.1458333283662796
+INFO: Validation Dice score: 0.1979166716337204
+INFO: Validation Dice score: 0.1805555522441864
+INFO: Validation Dice score: 0.204861119389534
+INFO: Validation Dice score: 0.1215277761220932
+INFO: Checkpoint 4 saved!
+INFO: Validation Dice score: 0.2152777761220932
+INFO: Validation Dice score: 0.1944444477558136
+INFO: Validation Dice score: 0.15625
+INFO: Validation Dice score: 0.1840277761220932
+INFO: Validation Dice score: 0.16017313301563263
+INFO: Checkpoint 5 saved!
+INFO: Validation Dice score: 0.1979166716337204
+INFO: Validation Dice score: 0.15625
+INFO: Validation Dice score: 0.2083333283662796
+INFO: Validation Dice score: 0.1840277761220932
+INFO: Validation Dice score: 0.1909722238779068
+INFO: Checkpoint 6 saved!
+INFO: Validation Dice score: 0.2030627429485321
+INFO: Validation Dice score: 0.17714768648147583
+INFO: Validation Dice score: 0.1701388955116272
+INFO: Validation Dice score: 0.1909722238779068
+INFO: Validation Dice score: 0.19041894376277924
+INFO: Checkpoint 7 saved!
+INFO: Validation Dice score: 0.2617768347263336
+INFO: Validation Dice score: 0.21932336688041687
+INFO: Validation Dice score: 0.023227255791425705
+INFO: Validation Dice score: 0.173611119389534
+INFO: Validation Dice score: 0.20255650579929352
+INFO: Checkpoint 8 saved!
+INFO: Validation Dice score: 0.18276123702526093
+INFO: Validation Dice score: 0.15845923125743866
+INFO: Validation Dice score: 0.23664899170398712
+INFO: Validation Dice score: 0.1714838296175003
+INFO: Validation Dice score: 0.22461114823818207
+INFO: Checkpoint 9 saved!
+INFO: Validation Dice score: 0.04064404219388962
+INFO: Validation Dice score: 0.19581477344036102
+INFO: Validation Dice score: 0.18789859116077423
+INFO: Validation Dice score: 0.215453639626503
+INFO: Validation Dice score: 0.21342837810516357
+INFO: Checkpoint 10 saved!
+INFO: Validation Dice score: 0.1986594945192337
+INFO: Validation Dice score: 0.17198783159255981
+INFO: Validation Dice score: 0.23113985359668732
+INFO: Validation Dice score: 0.190238356590271
+INFO: Validation Dice score: 0.028788983821868896
+INFO: Checkpoint 11 saved!
+INFO: Validation Dice score: 0.1712612807750702
+INFO: Validation Dice score: 0.17301404476165771
+INFO: Validation Dice score: 0.18208856880664825
+INFO: Validation Dice score: 0.21023644506931305
+INFO: Validation Dice score: 0.18985357880592346
+INFO: Checkpoint 12 saved!
+INFO: Validation Dice score: 0.017720110714435577
+INFO: Validation Dice score: 0.20476000010967255
+INFO: Validation Dice score: 0.2645801305770874
+INFO: Validation Dice score: 0.24522079527378082
+INFO: Validation Dice score: 0.23642604053020477
+INFO: Checkpoint 13 saved!
+INFO: Validation Dice score: 0.18523450195789337
+INFO: Validation Dice score: 0.2601703405380249
+INFO: Validation Dice score: 0.23021647334098816
+INFO: Validation Dice score: 0.17165711522102356
+INFO: Validation Dice score: 0.2491297423839569
+INFO: Checkpoint 14 saved!
+INFO: Validation Dice score: 0.23222872614860535
+INFO: Validation Dice score: 0.19884344935417175
+INFO: Validation Dice score: 0.19624269008636475
+INFO: Validation Dice score: 0.22370879352092743
+INFO: Validation Dice score: 0.17123551666736603
+INFO: Checkpoint 15 saved!
+INFO: Validation Dice score: 0.15955059230327606
+INFO: Validation Dice score: 0.226310595870018
+INFO: Validation Dice score: 0.1421492099761963
+INFO: Validation Dice score: 0.20702867209911346
+INFO: Validation Dice score: 0.23457124829292297
+INFO: Checkpoint 16 saved!
+INFO: Validation Dice score: 0.2052920162677765
+INFO: Validation Dice score: 0.16643546521663666
+INFO: Validation Dice score: 0.2364974319934845
+INFO: Validation Dice score: 0.21160182356834412
+INFO: Validation Dice score: 0.1988532394170761
+INFO: Checkpoint 17 saved!
+INFO: Validation Dice score: 0.16176415979862213
+INFO: Validation Dice score: 0.18825848400592804
+INFO: Validation Dice score: 0.16133208572864532
+INFO: Validation Dice score: 0.17189432680606842
+INFO: Validation Dice score: 0.2605333924293518
+INFO: Checkpoint 18 saved!
+INFO: Validation Dice score: 0.2265206128358841
+INFO: Validation Dice score: 0.2753356695175171
+INFO: Validation Dice score: 0.17955002188682556
+INFO: Validation Dice score: 0.20080497860908508
+INFO: Validation Dice score: 0.2192257046699524
+INFO: Checkpoint 19 saved!
+INFO: Validation Dice score: 0.1970895379781723
+INFO: Validation Dice score: 0.24810732901096344
+INFO: Validation Dice score: 0.06726420670747757
+INFO: Validation Dice score: 0.21210676431655884
+INFO: Validation Dice score: 0.18937095999717712
+INFO: Checkpoint 20 saved!
+INFO: Validation Dice score: 0.15222960710525513
+INFO: Validation Dice score: 0.1910846084356308
+INFO: Validation Dice score: 0.2529260814189911
+INFO: Validation Dice score: 0.19189326465129852
+INFO: Validation Dice score: 0.16070283949375153
+INFO: Checkpoint 21 saved!
+INFO: Validation Dice score: 0.2260368913412094
+INFO: Validation Dice score: 0.1600719392299652
+INFO: Validation Dice score: 0.16510172188282013
+INFO: Validation Dice score: 0.21175941824913025
+INFO: Validation Dice score: 0.238009512424469
+INFO: Checkpoint 22 saved!
+INFO: Validation Dice score: 0.21016618609428406
+INFO: Validation Dice score: 0.18521904945373535
+INFO: Validation Dice score: 0.18961535394191742
+INFO: Validation Dice score: 0.16154128313064575
+INFO: Validation Dice score: 0.26920679211616516
+INFO: Checkpoint 23 saved!
+INFO: Validation Dice score: 0.15389925241470337
+INFO: Validation Dice score: 0.18388541042804718
+INFO: Validation Dice score: 0.1641327142715454
+INFO: Validation Dice score: 0.2366998940706253
+INFO: Validation Dice score: 0.18056999146938324
+INFO: Checkpoint 24 saved!
+INFO: Validation Dice score: 0.17126807570457458
+INFO: Validation Dice score: 0.18308426439762115
+INFO: Validation Dice score: 0.24553421139717102
+INFO: Validation Dice score: 0.2366853505373001
+INFO: Validation Dice score: 0.20427854359149933
+INFO: Checkpoint 25 saved!
+INFO: Validation Dice score: 0.15357384085655212
+INFO: Validation Dice score: 0.21803271770477295
+INFO: Validation Dice score: 0.16478145122528076
+INFO: Validation Dice score: 0.22601181268692017
+INFO: Validation Dice score: 0.1303701400756836
+INFO: Checkpoint 26 saved!
+INFO: Validation Dice score: 0.22630400955677032
+INFO: Validation Dice score: 0.2208995670080185
+INFO: Validation Dice score: 0.21953918039798737
+INFO: Validation Dice score: 0.22635073959827423
+INFO: Validation Dice score: 0.14299769699573517
+INFO: Checkpoint 27 saved!
+INFO: Validation Dice score: 0.14059633016586304
+INFO: Validation Dice score: 0.1972290426492691
+INFO: Validation Dice score: 0.1290021687746048
+INFO: Validation Dice score: 0.22284987568855286
+INFO: Validation Dice score: 0.2189462035894394
+INFO: Checkpoint 28 saved!
+INFO: Validation Dice score: 0.15668760240077972
+INFO: Validation Dice score: 0.16134041547775269
+INFO: Validation Dice score: 0.20250727236270905
+INFO: Validation Dice score: 0.13027311861515045
+INFO: Validation Dice score: 0.2009764462709427
+INFO: Checkpoint 29 saved!
+INFO: Validation Dice score: 0.16364410519599915
+INFO: Validation Dice score: 0.24436095356941223
+INFO: Validation Dice score: 0.1894800215959549
+INFO: Validation Dice score: 0.23975501954555511
+INFO: Validation Dice score: 0.23698009550571442
+INFO: Checkpoint 30 saved!
+INFO: Validation Dice score: 0.13661669194698334
+INFO: Validation Dice score: 0.18327879905700684
+INFO: Validation Dice score: 0.18782277405261993
+INFO: Validation Dice score: 0.24041979014873505
+INFO: Validation Dice score: 0.20463207364082336
+INFO: Checkpoint 31 saved!
+INFO: Validation Dice score: 0.2375842183828354
+INFO: Validation Dice score: 0.20263539254665375
+INFO: Validation Dice score: 0.05422951653599739
+INFO: Validation Dice score: 0.15416935086250305
+INFO: Validation Dice score: 0.14866918325424194
+INFO: Checkpoint 32 saved!
+INFO: Validation Dice score: 0.17238064110279083
+INFO: Validation Dice score: 0.17053315043449402
+INFO: Validation Dice score: 0.19681671261787415
+INFO: Validation Dice score: 0.21565720438957214
+INFO: Validation Dice score: 0.21207818388938904
+INFO: Checkpoint 33 saved!
+INFO: Validation Dice score: 0.17402078211307526
+INFO: Validation Dice score: 0.16445526480674744
+INFO: Validation Dice score: 0.25740960240364075
+INFO: Validation Dice score: 0.24759578704833984
+INFO: Validation Dice score: 0.21024318039417267
+INFO: Checkpoint 34 saved!
+INFO: Validation Dice score: 0.18223044276237488
+INFO: Validation Dice score: 0.17427900433540344
+INFO: Validation Dice score: 0.1807975172996521
+INFO: Validation Dice score: 0.1786249428987503
+INFO: Validation Dice score: 0.2036305069923401
+INFO: Checkpoint 35 saved!
+INFO: Validation Dice score: 0.22724822163581848
+INFO: Validation Dice score: 0.1748039871454239
+INFO: Validation Dice score: 0.15168747305870056
+INFO: Validation Dice score: 0.14493411779403687
+INFO: Validation Dice score: 0.21454133093357086
+INFO: Checkpoint 36 saved!
+INFO: Validation Dice score: 0.1844967007637024
+INFO: Validation Dice score: 0.2198541760444641
+INFO: Validation Dice score: 0.22934134304523468
+INFO: Validation Dice score: 0.1298752874135971
+INFO: Validation Dice score: 0.16462211310863495
+INFO: Checkpoint 37 saved!
+INFO: Validation Dice score: 0.10278806835412979
+INFO: Validation Dice score: 0.1281832903623581
+INFO: Validation Dice score: 0.17605724930763245
+INFO: Validation Dice score: 0.14687477052211761
+INFO: Validation Dice score: 0.13441550731658936
+INFO: Checkpoint 38 saved!
+INFO: Validation Dice score: 0.17428311705589294
+INFO: Validation Dice score: 0.2006441205739975
+INFO: Validation Dice score: 0.2295648604631424
+INFO: Validation Dice score: 0.16391707956790924
+INFO: Validation Dice score: 0.20107562839984894
+INFO: Checkpoint 39 saved!
+INFO: Validation Dice score: 0.14082232117652893
+INFO: Validation Dice score: 0.020595356822013855
+INFO: Validation Dice score: 0.17921596765518188
+INFO: Validation Dice score: 0.12184704840183258
+INFO: Validation Dice score: 0.17277635633945465
+INFO: Checkpoint 40 saved!
+INFO: Validation Dice score: 0.1806444376707077
+INFO: Validation Dice score: 0.14726635813713074
+INFO: Validation Dice score: 0.15649063885211945
+INFO: Validation Dice score: 0.17345567047595978
+INFO: Validation Dice score: 0.21817763149738312
+INFO: Checkpoint 41 saved!
+INFO: Validation Dice score: 0.17569060623645782
+INFO: Validation Dice score: 0.19411607086658478
+INFO: Validation Dice score: 0.16262881457805634
+INFO: Validation Dice score: 0.18646305799484253
+INFO: Validation Dice score: 0.22863636910915375
+INFO: Checkpoint 42 saved!
+INFO: Validation Dice score: 0.21074031293392181
+INFO: Validation Dice score: 0.18194420635700226
+INFO: Validation Dice score: 0.20379629731178284
+INFO: Validation Dice score: 0.22032712399959564
+INFO: Validation Dice score: 0.196792870759964
+INFO: Checkpoint 43 saved!
+INFO: Validation Dice score: 0.05463729426264763
+INFO: Validation Dice score: 0.1153646856546402
+INFO: Validation Dice score: 0.017770227044820786
+INFO: Validation Dice score: 0.030051294714212418
+INFO: Validation Dice score: 0.0232621468603611
+INFO: Checkpoint 44 saved!
+INFO: Validation Dice score: 0.1920907199382782
+INFO: Validation Dice score: 0.1902688592672348
+INFO: Validation Dice score: 0.045194026082754135
+INFO: Validation Dice score: 0.1811647266149521
+INFO: Validation Dice score: 0.16263838112354279
+INFO: Checkpoint 45 saved!
+INFO: Validation Dice score: 0.14975236356258392
+INFO: Validation Dice score: 0.022934699431061745
+INFO: Validation Dice score: 0.18809421360492706
+INFO: Validation Dice score: 0.13140766322612762
+INFO: Validation Dice score: 0.20962181687355042
+INFO: Checkpoint 46 saved!
+INFO: Validation Dice score: 0.1664460450410843
+INFO: Validation Dice score: 0.19954414665699005
+INFO: Validation Dice score: 0.2010500729084015
+INFO: Validation Dice score: 0.1557818353176117
+INFO: Validation Dice score: 0.17375026643276215
+INFO: Checkpoint 47 saved!
+INFO: Validation Dice score: 0.14382874965667725
+INFO: Validation Dice score: 0.15421314537525177
+INFO: Validation Dice score: 0.2187008112668991
+INFO: Validation Dice score: 0.17996056377887726
+INFO: Validation Dice score: 0.18434251844882965
+INFO: Checkpoint 48 saved!
+INFO: Validation Dice score: 0.1495732069015503
+INFO: Validation Dice score: 0.19059962034225464
+INFO: Validation Dice score: 0.17204971611499786
+INFO: Validation Dice score: 0.22567680478096008
+INFO: Validation Dice score: 0.16009777784347534
+INFO: Checkpoint 49 saved!
+INFO: Validation Dice score: 0.1849857121706009
+INFO: Validation Dice score: 0.15745694935321808
+INFO: Validation Dice score: 0.07144120335578918
+INFO: Validation Dice score: 0.20375409722328186
+INFO: Validation Dice score: 0.19069084525108337
+INFO: Checkpoint 50 saved!
+INFO: Validation Dice score: 0.17269010841846466
+INFO: Validation Dice score: 0.15410451591014862
+INFO: Validation Dice score: 0.129912868142128
+INFO: Validation Dice score: 0.15668551623821259
+INFO: Validation Dice score: 0.05745517089962959
+INFO: Checkpoint 51 saved!
+INFO: Validation Dice score: 0.15522928535938263
+INFO: Validation Dice score: 0.20592565834522247
+INFO: Validation Dice score: 0.12182332575321198
+INFO: Validation Dice score: 0.1273239254951477
+INFO: Validation Dice score: 0.026717357337474823
+INFO: Checkpoint 52 saved!
+INFO: Validation Dice score: 0.17253227531909943
+INFO: Validation Dice score: 0.025591673329472542
+INFO: Validation Dice score: 0.14233306050300598
+INFO: Validation Dice score: 0.1323823183774948
+INFO: Validation Dice score: 0.19565045833587646
+INFO: Checkpoint 53 saved!
+INFO: Validation Dice score: 0.15505214035511017
+INFO: Validation Dice score: 0.13750454783439636
+INFO: Validation Dice score: 0.16385680437088013
+INFO: Validation Dice score: 0.15561887621879578
+INFO: Validation Dice score: 0.15882596373558044
+INFO: Checkpoint 54 saved!
+INFO: Validation Dice score: 0.14931388199329376
+INFO: Validation Dice score: 0.1514490693807602
+INFO: Validation Dice score: 0.16493144631385803
+INFO: Validation Dice score: 0.1602926254272461
+INFO: Validation Dice score: 0.12546035647392273
+INFO: Checkpoint 55 saved!
+INFO: Validation Dice score: 0.1295257806777954
+INFO: Validation Dice score: 0.13239464163780212
+INFO: Validation Dice score: 0.14755919575691223
+INFO: Validation Dice score: 0.1864623874425888
+INFO: Validation Dice score: 0.17554035782814026
+INFO: Checkpoint 56 saved!
+INFO: Validation Dice score: 0.11977578699588776
+INFO: Validation Dice score: 0.1711358278989792
+INFO: Validation Dice score: 0.14782990515232086
+INFO: Validation Dice score: 0.15426605939865112
+INFO: Validation Dice score: 0.1366816908121109
+INFO: Checkpoint 57 saved!
+INFO: Validation Dice score: 0.18814659118652344
+INFO: Validation Dice score: 0.182115837931633
+INFO: Validation Dice score: 0.15884263813495636
+INFO: Validation Dice score: 0.178259938955307
+INFO: Validation Dice score: 0.20097927749156952
+INFO: Checkpoint 58 saved!
+INFO: Validation Dice score: 0.142236590385437
+INFO: Validation Dice score: 0.17756624519824982
+INFO: Validation Dice score: 0.007189456839114428
+INFO: Validation Dice score: 0.15623363852500916
+INFO: Validation Dice score: 0.16454379260540009
+INFO: Checkpoint 59 saved!
+INFO: Validation Dice score: 0.1649264097213745
+INFO: Validation Dice score: 0.1961050182580948
+INFO: Validation Dice score: 0.13335758447647095
+INFO: Validation Dice score: 0.14764149487018585
+INFO: Validation Dice score: 0.12042752653360367
+INFO: Checkpoint 60 saved!

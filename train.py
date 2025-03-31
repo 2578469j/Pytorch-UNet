@@ -3,6 +3,7 @@ import logging
 import os
 import random
 import sys
+import time
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -161,7 +162,8 @@ def train_model(
              scheduler = "MultiplicativeLR",
              scheduler_params= {"lr_lambda epoch": 0.98},
              optimizer="SGD",
-             optimizer_params={"lr": learning_rate, "weight_decay": weight_decay, "momentum":momentum}
+             optimizer_params={"lr": learning_rate, "weight_decay": weight_decay, "momentum":momentum},
+             non_linear_function="ReLu"
              )
     )
 
@@ -184,7 +186,12 @@ def train_model(
         epoch_dice = 0
         with tqdm(total=n_train, desc=f'Epoch {epoch}/{epochs}', unit='img') as pbar:
             batch_idx = 0
+           # start_time = time.time()
             for batch in train_loader:
+               # batch_time = (time.time() - start_time)
+               # print(f"batch: {batch_time}")
+                #start_time = time.time()
+
                 batch_idx += 1
                 images, true_masks = batch['image'], batch['mask']
 
@@ -195,15 +202,23 @@ def train_model(
 
                 images = images.to(device=device, dtype=torch.float32, memory_format=torch.channels_last)
                 true_masks = true_masks.to(device=device, dtype=torch.long)
-
+                
                 with torch.autocast(device.type if device.type != 'mps' else 'cpu', enabled=amp):
+                   # preprocess_time = (time.time() - start_time)
+                   # start_time = time.time()
+
                     masks_pred = model(images)
+                   # model_time = (time.time() - start_time)
+                 #   start_time = time.time()
+
                     if model.n_classes == 1:
                         criterion_loss, dice_loss = criterion.get_loss(images, masks_pred, true_masks)
                         loss = criterion_loss + dice_loss
                         if torch.any(loss.isnan()) == True:
                             print("BAD TRAIN")
-                    
+                     #   loss_time = (time.time() - start_time)
+                     #   start_time = time.time()
+
                         pred_defected_patches = torch.any((F.sigmoid(masks_pred) > 0.5).float().squeeze(1), (1,2))
                         true_defected_patches = torch.any(true_masks, (1,2))
 
@@ -223,6 +238,8 @@ def train_model(
                         TP_pxs += torch.sum(torch.logical_and(pred_defected_pxs, true_defected_pxs)).item()
                         FP_pxs += torch.sum(torch.logical_and(pred_defected_pxs, torch.logical_not(true_defected_pxs))).item()
                         FN_pxs += torch.sum(torch.logical_and(torch.logical_not(pred_defected_pxs), true_defected_pxs)).item()
+                    #    metrics_time = (time.time() - start_time)
+                    #    start_time = time.time()
 
                     else:
                         raise Exception("Unimplemented multiple classes")
@@ -240,10 +257,12 @@ def train_model(
                 grad_scaler.step(optimizer)
                 grad_scaler.update()
 
+            #    important_time = (time.time() - start_time)
+            #    start_time = time.time()
+
                 pbar.update(images.shape[0])
                 global_step += 1
                 epoch_loss += loss.item()
-
 
                 epsilon = 1e-4
                 train_recall_patch = TP_patches / (TP_patches+FN_patches+epsilon)
@@ -256,6 +275,10 @@ def train_model(
 
                 iou = TP_pxs / (TP_pxs + FP_pxs + FN_pxs + epsilon)
                 epoch_dice += dice_loss.item()
+
+            #    metrics2_time = (time.time() - start_time)
+            #    start_time = time.time()
+
                 experiment.log({
                     'train loss': loss.item(),
                     'step': global_step,
@@ -271,6 +294,9 @@ def train_model(
                     'epoch train DICE': epoch_dice / batch_idx,
                 })
                 pbar.set_postfix(**{'loss (batch)': loss.item()})
+
+            #    wandb_time = (time.time() - start_time)
+             #   start_time = time.time()
 
                 # Evaluation round
                 division_step = (n_train // (5 * batch_size))
@@ -300,7 +326,7 @@ def train_model(
                                 'validation pixel Accuraccy': val_accuracy_px,
                                 'validation pixel Defected_Rate': val_defected_rate_px,
                                 'validation IOU': val_iou,
-                                'images': wandb.Image(images[0].cpu()),
+                                'images': wandb.Image(images[0, :3, ...].cpu()),
                                 'masks': {
                                     'true': wandb.Image(true_masks[0].float().cpu()),
                                     'pred': wandb.Image(masks_pred.argmax(dim=1)[0].float().cpu()) if model.n_classes > 1 else wandb.Image((F.sigmoid(masks_pred))[0].float().cpu()),
@@ -311,10 +337,15 @@ def train_model(
                             })
                         except:
                             pass
+                #validation_time = (time.time() - start_time)
+               # start_time = time.time()
+                #print(f"preproceess: {preprocess_time}, \n model:{model_time}, \n loss: {loss_time}, \n metrics: {metrics_time}, \n important: {important_time}, \n metrics2: {metrics2_time}, \n wandb: {wandb_time}, \n validation: {validation_time}")
+
         if isinstance(scheduler, torch.optim.lr_scheduler.MultiplicativeLR):        
             scheduler.step()
 
         if save_checkpoint:
+            
             Path(dir_checkpoint).mkdir(parents=True, exist_ok=True)
             state_dict = model.state_dict()
             state_dict['mask_values'] = train_set.mask_values
@@ -322,13 +353,15 @@ def train_model(
             logging.info(f'Checkpoint {epoch} saved!')
 
 
+
+
 def get_args():
     parser = argparse.ArgumentParser(description='Train the UNet on images and target masks')
-    parser.add_argument('--epochs', '-e', metavar='E', type=int, default=30, help='Number of epochs')
+    parser.add_argument('--epochs', '-e', metavar='E', type=int, default=60, help='Number of epochs')
     parser.add_argument('--batch-size', '-b', dest='batch_size', metavar='B', type=int, default=16, help='Batch size')
     parser.add_argument('--learning-rate', '-l', metavar='LR', type=float, default=0.03, #5e-6,
                         help='Learning rate', dest='lr')
-    parser.add_argument('--weight_decay', '-wd', metavar='WD', type=float, default=0,#1e-8, 
+    parser.add_argument('--weight_decay', '-wd', metavar='WD', type=float, default=0, #1e-8, 
                         help='Weight Decay', dest='wd')
     parser.add_argument('--momentum', '-m', metavar='M', type=float, default=0.9,  #0.999
                         help='Momentum', dest='m')

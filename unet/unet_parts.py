@@ -5,6 +5,11 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 
+# Define Swish activation
+class Swish(nn.Module):
+    def forward(self, x):
+        return x * torch.sigmoid(x)
+    
 class DoubleConv3(nn.Module):
     """(convolution => [BN] => ReLU) * 2"""
 
