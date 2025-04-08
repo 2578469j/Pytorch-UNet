@@ -1,9 +1,11 @@
 import argparse
 import logging
+import math
 import os
 import random
 import sys
 import time
+from matplotlib import pyplot as plt
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -15,9 +17,10 @@ from torch.utils.data import DataLoader, random_split
 from tqdm import tqdm
 
 import wandb
-from evaluate import evaluate
+from evaluate import evaluate, evaluate_new
 from unet import UNet
 from unet.loss import LoggingCriterionModule, WeightedBinaryCrossEntropyLoss, WeightedBinaryCrossEntropyLossGlobal
+from unet.unet_model_og import UNet_og
 from utils.data_loading import BasicDataset, CarvanaDataset, GemsyDataset, GemsySplitLoader
 from utils.dice_score import dice_loss
 
@@ -30,8 +33,8 @@ from torchvision.ops.focal_loss import sigmoid_focal_loss
 #dir_img = Path('./data/imgs/')
 dir_img = Path("C:\\Users\\Admin\\Desktop\\Gemsy\\Data\\processed\\.in\\features\\")
 #dir_mask = Path('./data/masks/')
-dir_mask = Path("C:\\Users\\Admin\\Desktop\\Gemsy\\Data\\processed\\.in\\masks\\")
-
+#dir_mask = Path("C:\\Users\\Admin\\Desktop\\Gemsy\\Data\\processed\\.in\\masks\\")
+dir_mask = Path("C:\\Users\\Admin\\Desktop\\Gemsy\\Data\\processed\\.in\\adjusted_masks\\")
 #dir_img = Path("C:\\Users\\Admin\\Desktop\\Gemsy\\Data\\processed\\.subsplit\\features\\")
 #dir_mask = Path("C:\\Users\\Admin\\Desktop\\Gemsy\\Data\\processed\\.subsplit\\masks\\")
 
@@ -51,18 +54,25 @@ def train_model(
         weight_decay: float = 1e-8,
         momentum: float = 0.999,
         gradient_clipping: float = 1.0,
-        features = ["gt"]
+        features = ["gt"],
+        train_defect_focus_rate = 0.7,
+        patch_size = 512,
+        patches_per_image = 300,
+        restart_run = None,
+        start_epoch = None,
+        criterion_patch_size = 51,
+        unet_type = "OG"
 ):
     training_augmentation = A.Compose([
         A.HorizontalFlip(p=0.5),
         A.VerticalFlip(p=0.5),
         A.RandomRotate90(p=0.5),
         A.ShiftScaleRotate(shift_limit=0.1, scale_limit=0.1, rotate_limit=30, p=0.7),
-        A.ElasticTransform(p=0.3),
-        A.RandomBrightnessContrast(p=0.3),
+       # A.ElasticTransform(p=0.3),
+     #   A.RandomBrightnessContrast(p=0.3),
         #A.GaussNoise(var_limit=(10.0, 50.0), p=0.3),
-        A.GridDistortion(p=0.2),
-        A.CoarseDropout(max_height=16, max_width=16, max_holes=8, fill_value=0, p=0.3),
+     #   A.GridDistortion(p=0.2),
+      #  A.CoarseDropout(max_height=16, max_width=16, max_holes=8, fill_value=0, p=0.3),
         ToTensorV2()
     ])
     
@@ -81,8 +91,8 @@ def train_model(
     
     # 1. Create dataset
     try:
-        patch_size = 512
-        patches_per_image = 300
+        patch_size = patch_size#512
+        patches_per_image = patches_per_image #300
         #dataset = CarvanaDataset(dir_img, dir_mask, img_scale)
         #dataset = GemsyPatchDataset(dir_img, dir_mask, img_scale, transform=None)#training_augmentation)
         #dataset = GemsyDataset(dir_img, dir_mask, patch_size, patches_per_image, img_scale, transform=training_augmentation)#training_augmentation)
@@ -95,11 +105,11 @@ def train_model(
     n_train = len(all_ids) - n_val
 
     # Additional params
-    train_defect_focus_rate = 0.7
+    train_defect_focus_rate = train_defect_focus_rate
 
-    train_ids, val_ids = random_split(all_ids, [n_train, n_val], generator=torch.Generator().manual_seed(0))
+    train_ids, val_ids = random_split(all_ids, [n_train, n_val], generator=torch.Generator().manual_seed(1))
     train_set = GemsyDataset(dir_img, dir_mask, patch_size, patches_per_image, img_scale, features=features, transform=training_augmentation, ids=train_ids, defect_focus_rate=train_defect_focus_rate)
-    val_set = GemsyDataset(dir_img, dir_mask, patch_size, patches_per_image, img_scale, features=features, transform=None, ids=val_ids)
+    val_set = GemsyDataset(dir_img, dir_mask, patch_size, patches_per_image*2, img_scale, features=features, transform=None, ids=val_ids, validation=True)
 
     n_val = n_val * patches_per_image
     n_train = n_train * patches_per_image
@@ -110,10 +120,14 @@ def train_model(
     # 3. Create data loaders
     loader_args = dict(batch_size=batch_size, num_workers=0, pin_memory=True) #os.cpu_count() - memory overload due to spawning 32 processes
     train_loader = DataLoader(train_set, shuffle=True, **loader_args)
-    val_loader = DataLoader(val_set, shuffle=False, drop_last=True, **loader_args)
+    #val_loader = DataLoader(val_set, shuffle=False, drop_last=True, **loader_args)
 
     # (Initialize logging)
-    experiment = wandb.init(project='U-Net', resume='allow', anonymous='must')
+    if restart_run:
+        experiment = wandb.init(project='U-Net', resume='must', anonymous='must', id=restart_run)#, id="zs97wupy") #resume=allow resume=must
+    else:
+        experiment = wandb.init(project='U-Net', resume='allow', anonymous='must')#, id="zs97wupy") #resume=allow resume=must
+    
 
     logging.info(f'''Starting training:
         Epochs:          {epochs}
@@ -142,33 +156,43 @@ def train_model(
     grad_scaler = torch.cuda.amp.GradScaler(enabled=amp)
 
     # Binary Cross Entropy with Custom local Variance weighting and Dice loss
-    criterion = LoggingCriterionModule(criterion_name="BCELV+D", patch_size=31)
+    criterion = LoggingCriterionModule(criterion_name="BCELV+D", patch_size=criterion_patch_size)
+    #criterion = LoggingCriterionModule(criterion_name="BCE+D")
 
-    global_step = 0
+    if start_epoch and restart_run:
+        start_epoch += 1
+        global_step = math.ceil(n_train / (batch_size) * start_epoch)
+    else:
+        start_epoch = 0
+        global_step = 0 
 
-    experiment.config.update(
-        dict(epochs=epochs, batch_size=batch_size, learning_rate=learning_rate,
-             val_percent=val_percent, save_checkpoint=save_checkpoint, img_scale=img_scale, amp=amp,
-             momentum=momentum,weight_decay=weight_decay,
-             criterion=criterion.print_criterion(),
-             criterion_params=criterion.print_params(),
-             augmentations=str(training_augmentation) if training_augmentation else 'None',
-             dataset_features=features,
-             train_defect_focus_rate = train_defect_focus_rate,
-             train_ids = train_ids.dataset,
-             val_ids = val_ids.dataset,
-             patch_size = patch_size,
-             patches_per_image = patches_per_image,
-             scheduler = "MultiplicativeLR",
-             scheduler_params= {"lr_lambda epoch": 0.98},
-             optimizer="SGD",
-             optimizer_params={"lr": learning_rate, "weight_decay": weight_decay, "momentum":momentum},
-             non_linear_function="ReLu"
-             )
-    )
+    if not restart_run:
+        experiment.config.update(
+            dict(epochs=epochs, batch_size=batch_size, learning_rate=learning_rate,
+                 val_percent=val_percent, save_checkpoint=save_checkpoint, img_scale=img_scale, amp=amp,
+                 momentum=momentum,weight_decay=weight_decay,
+                 criterion=criterion.print_criterion(),
+                 criterion_params=criterion.print_params(),
+                 augmentations=str(training_augmentation) if training_augmentation else 'None',
+                 dataset_features=features,
+                 train_defect_focus_rate = train_defect_focus_rate,
+                 train_ids = list(train_ids),
+                 val_ids = list(val_ids),
+                 patch_size = patch_size,
+                 patches_per_image = patches_per_image,
+                 scheduler = "MultiplicativeLR",
+                 scheduler_params= {"lr_lambda epoch": 0.98},
+                 optimizer="SGD",
+                 optimizer_params={"lr": learning_rate, "weight_decay": weight_decay, "momentum":momentum},
+                 non_linear_function="ReLu",
+                 additional="Using Adjusted masks, variance applied to full",
+                 unet_type=unet_type,
+                 criterion_patch_size=criterion_patch_size
+                 )
+        )
 
     # 5. Begin training
-    for epoch in range(1, epochs + 1):
+    for epoch in range(start_epoch, epochs + 1):
         model.train()
         epoch_loss = 0
         TP_patches = 0
@@ -194,6 +218,22 @@ def train_model(
 
                 batch_idx += 1
                 images, true_masks = batch['image'], batch['mask']
+
+                # i = 1
+                # c = images[i, 6:9, ...].cpu().transpose(0, 2)
+                # plt.figure(figsize = (5,5))
+                # plt.imshow(c.cpu())
+
+                # m = true_masks[i].cpu()
+                # plt.figure(figsize = (5,5))
+                # plt.imshow(m.cpu())
+
+                # d = images[i, 6:9, ...].cpu().transpose(0, 2)
+                # plt.figure(figsize = (5,5))
+                # plt.imshow(d.cpu())
+
+                # plt.close()
+                # plt.close()
 
                 assert images.shape[1] == model.n_channels, \
                     f'Network has been defined with {model.n_channels} input channels, ' \
@@ -310,7 +350,7 @@ def train_model(
                             if not (torch.isinf(value.grad) | torch.isnan(value.grad)).any():
                                 histograms['Gradients/' + tag] = wandb.Histogram(value.grad.data.cpu())
 
-                        val_score, val_recall_patch, val_accuracy_patch, val_defected_rate_patch, val_recall_px, val_accuracy_px, val_defected_rate_px, val_iou = evaluate(model, val_loader, device, amp)
+                        val_score, val_recall_patch, val_accuracy_patch, val_defected_rate_patch, val_recall_px, val_accuracy_px, val_defected_rate_px, val_iou = evaluate_new(model, val_set, device, amp) # val_loader
                         if isinstance(scheduler, torch.optim.lr_scheduler.ReduceLROnPlateau):        
                             scheduler.step(val_score)
 
@@ -357,17 +397,18 @@ def train_model(
 
 def get_args():
     parser = argparse.ArgumentParser(description='Train the UNet on images and target masks')
-    parser.add_argument('--epochs', '-e', metavar='E', type=int, default=60, help='Number of epochs')
-    parser.add_argument('--batch-size', '-b', dest='batch_size', metavar='B', type=int, default=16, help='Batch size')
-    parser.add_argument('--learning-rate', '-l', metavar='LR', type=float, default=0.03, #5e-6,
+    parser.add_argument('--epochs', '-e', metavar='E', type=int, default=180, help='Number of epochs')
+    parser.add_argument('--batch-size', '-b', dest='batch_size', metavar='B', type=int, default=8, help='Batch size')
+    parser.add_argument('--learning-rate', '-l', metavar='LR', type=float, default=0.03, #0.03, #5e-6, 0.03
                         help='Learning rate', dest='lr')
     parser.add_argument('--weight_decay', '-wd', metavar='WD', type=float, default=0, #1e-8, 
                         help='Weight Decay', dest='wd')
-    parser.add_argument('--momentum', '-m', metavar='M', type=float, default=0.9,  #0.999
+    parser.add_argument('--momentum', '-m', metavar='M', type=float, default=0.95,  #0.999
                         help='Momentum', dest='m')
-    parser.add_argument('--load', '-f', type=str, default=False, help='Load model from a .pth file')
-    parser.add_argument('--scale', '-s', type=float, default=1, help='Downscaling factor of the images')
-    parser.add_argument('--validation', '-v', dest='val', type=float, default=10.0,
+    parser.add_argument('--load', '-f', type=str, default=False, help='Load model from a .pth file') 
+    #parser.add_argument('--load', '-f', type=str, default="C:\\Users\\Admin\\Desktop\\Gemsy\\External\\Pytorch-UNet\\checkpoints\\checkpoint_epoch1.pth", help='Load model from a .pth file')
+    parser.add_argument('--scale', '-s', type=float, default=0.5, help='Downscaling factor of the images')
+    parser.add_argument('--validation', '-v', dest='val', type=float, default=25.0,
                         help='Percent of the data that is used as validation (0-100)')
     parser.add_argument('--amp', action='store_true', default=False, help='Use mixed precision')
     parser.add_argument('--bilinear', action='store_true', default=False, help='Use bilinear upsampling')
@@ -383,12 +424,24 @@ if __name__ == '__main__':
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     logging.info(f'Using device {device}')
 
+
+    train_defect_focus_rate = 0.7
+    patch_size = 512
+    patches_per_image = 300 # 300
+    criterion_patch_size = 45
+
     # Change here to adapt to your data
     # n_channels=3 for RGB images
     # n_classes is the number of probabilities you want to get per pixel
-    features = ["full", "opacity", "dbscan"]
+    features = ["full", "dbscantuned", "opacity"]
     n_channels = len(features) * 3
-    model = UNet(n_channels=n_channels, n_classes=args.classes, bilinear=args.bilinear)
+    unet_type = "OG"
+
+    if unet_type == "OG":
+        model = UNet_og(n_channels=n_channels, n_classes=args.classes, bilinear=args.bilinear)
+    else:
+        model = UNet(n_channels=n_channels, n_classes=args.classes, bilinear=args.bilinear)
+    
     model = model.to(memory_format=torch.channels_last)
 
     logging.info(f'Network:\n'
@@ -396,11 +449,20 @@ if __name__ == '__main__':
                  f'\t{model.n_classes} output channels (classes)\n'
                  f'\t{"Bilinear" if model.bilinear else "Transposed conv"} upscaling')
 
+    start_epoch = None
+    restart_run = None
+   # start_epoch = 1
+    #restart_run = "tsiltzmj"
+
     if args.load:
+        args.load
         state_dict = torch.load(args.load, map_location=device)
         del state_dict['mask_values']
         model.load_state_dict(state_dict)
         logging.info(f'Model loaded from {args.load}')
+        #start_epoch = 0  #INSEERT
+       # restart_run = "id" #INSERT
+
 
     model.to(device=device)
     try:
@@ -415,7 +477,14 @@ if __name__ == '__main__':
             amp=args.amp,
             weight_decay=args.wd,
             momentum=args.m,
-            features = features
+            features = features,
+            unet_type = unet_type,
+            start_epoch=start_epoch,
+            restart_run=restart_run,
+            train_defect_focus_rate = train_defect_focus_rate,
+            patch_size = patch_size,
+            patches_per_image = patches_per_image,
+            criterion_patch_size = criterion_patch_size,
         )
     except torch.cuda.OutOfMemoryError:
         logging.error('Detected OutOfMemoryError! '

@@ -1,6 +1,7 @@
 import logging
 import time
 import numpy as np
+from patchify import patchify
 import torch
 from PIL import Image
 from functools import lru_cache
@@ -22,7 +23,7 @@ def load_image(filename):
     elif ext in ['.pt', '.pth']:
         return Image.fromarray(torch.load(filename).numpy())
     else:
-        im = Image.open(filename)
+        im = Image.open(filename).convert("RGB")
         #print(im.size)
         return im #Image.open(filename)
 
@@ -39,7 +40,7 @@ def unique_mask_values(idx, mask_dir, mask_suffix):
         raise ValueError(f'Loaded masks should have 2 or 3 dimensions, found {mask.ndim}')
 
 class GemsySplitLoader():
-    def __init__(self, images_dir, mask_dir, test_ids=['3', '6', '9', '12']):
+    def __init__(self, images_dir, mask_dir, test_ids=[]): #'3', '6', '9', '12'
         self.images_dir = images_dir
         self.mask_dir = mask_dir
         self.test_ids = test_ids
@@ -51,7 +52,8 @@ class GemsySplitLoader():
             "opacity": "opacity.png",
             "dbscan": "dbscan.png",
             "gt": "gt.png",
-            "gt_mask": "gt_mask.png"
+            "gt_mask": "gt_mask.png",
+            "dbscantuned": "dbscantuned.png"
         }
 
         self.pallete = {
@@ -147,7 +149,8 @@ class GemsyPatchSplitLoader():
             "opacity": "opacity.png",
             "dbscan": "dbscan.png",
             "gt": "gt.png",
-            "gt_mask": "gt_mask.png"
+            "gt_mask": "gt_mask.png",
+            "dbscantuned": "dbscantuned.png"
         }
 
         self.pallete = {
@@ -441,7 +444,7 @@ class GemsyPatchDataset(Dataset):
         }
     
 class GemsyDataset(Dataset):
-    def __init__(self, images_dir:str, mask_dir:str, patch_size=512, patches_per_image=300, scale=1.0, features = ['gt'], defect_focus_rate = 0.7, transform=None, ids=None):
+    def __init__(self, images_dir:str, mask_dir:str, patch_size=512, patches_per_image=300, scale=1.0, features = ['gt'], defect_focus_rate = 0.7, transform=None, ids=None, validation=False):
         self.images_dir = Path(images_dir)
         self.mask_dir = Path(mask_dir)
         self.scale = scale
@@ -450,9 +453,12 @@ class GemsyDataset(Dataset):
         self.patches_per_image = patches_per_image
         self.features = features
         self.defect_focus_rate = defect_focus_rate
-
+        self.validation = validation
+        self.overlap = 0
+        
         self.cached_masks = {}
         self.cached_imgs = {}
+        self.cached_img_sizes = {}
 
         logging.info('Scanning mask files to determine unique values')
         self.split_loader = GemsySplitLoader(self.images_dir, self.mask_dir)
@@ -462,7 +468,10 @@ class GemsyDataset(Dataset):
         logging.info(f'Unique mask values: {self.mask_values}')
 
     def __len__(self):
-        return len(self.ids) * self.patches_per_image
+        if self.validation:
+            return len(self.ids)
+        else:
+            return len(self.ids) * self.patches_per_image
 
     @staticmethod
     def preprocess(mask_values, pil_img, scale, is_mask):
@@ -543,7 +552,6 @@ class GemsyDataset(Dataset):
 
             top = max(0, min(H - ph, y - ph // 2))
             left = max(0, min(W - pw, x - pw // 2))
-
         else:
             top = torch.randint(0, H - ph + 1, (1,)).item()
             left = torch.randint(0, W - pw + 1, (1,)).item()
@@ -551,6 +559,107 @@ class GemsyDataset(Dataset):
         img_patches = imgs[:, top:top+ph, left:left+pw]
         mask_patch = mask[top:top+ph, left:left+pw]
         return img_patches, mask_patch
+
+    def get_prediction_data_predict(self, id, overlap=0):
+        img_fnames = self.split_loader.get_feature_fpaths(id, self.features)
+        mask_fname = self.split_loader.get_mask_fpath(id)
+        mask = load_image(self.mask_dir / mask_fname)
+
+        # Feature fetching
+        imgs = []
+        og_img = None
+        size = None
+        i = 0
+        for feature, img_fname in img_fnames.items():
+            # Load image from raw
+            img = load_image(self.images_dir / img_fnames[feature])
+            if i == 0:
+                og_img = img
+            img = self.preprocess(None, img, self.scale, is_mask=False)
+            size = img.shape
+
+            imgs.append(img)
+        img_stack_np = np.concatenate(imgs, axis=0)  # [C_total, H, W]
+
+        step = int(self.patch_size * (1-overlap))
+        img_stack_swapped = np.moveaxis(img_stack_np, 0, -1)
+        patches = patchify(img_stack_swapped, (self.patch_size, self.patch_size, len(self.features)*3), step=step)
+        num_y, num_x = patches.shape[:2]
+        patches = patches.reshape(-1, self.patch_size, self.patch_size, len(self.features)*3)
+        patches = np.moveaxis(patches, -1, 1)
+
+        stacked_img_patches = torch.from_numpy(patches).to(torch.float16)
+        
+        return stacked_img_patches.contiguous(), size, og_img, mask
+    
+    def get_prediction_data(self, img_idx):
+        name = self.ids[img_idx]
+
+        img_fnames = self.split_loader.get_feature_fpaths(name, self.features)
+        mask_fname = self.split_loader.get_mask_fpath(name)
+
+        preprocessed_mask_path = self.mask_dir / ".preprocessed" / f"{mask_fname}.pt"
+        preprocessed_img_paths = {feature: self.images_dir / ".preprocessed" / f"{img_fname}.pt" for feature, img_fname in img_fnames.items()}
+
+        imgs = []
+
+        if img_idx in self.cached_masks:
+            mask_tensor = self.cached_masks[img_idx]
+            img_stack_np = self.cached_imgs[img_idx]
+            img_size = self.cached_img_sizes[img_idx]
+        else:
+            # Mask fetching
+            #mask_size = None
+            if preprocessed_mask_path.exists():
+                mask = torch.load(preprocessed_mask_path, weights_only=False)
+            else:
+                mask = load_image(self.mask_dir / mask_fname)
+                mask = self.preprocess(self.mask_values, mask, self.scale, is_mask=True)
+                # Save preprocessed tensors to disk
+                preprocessed_mask_path.parent.mkdir(parents=True, exist_ok=True)
+                torch.save(mask, preprocessed_mask_path)
+
+            # Store in memory cache
+            mask_tensor = torch.from_numpy(mask).to(torch.float16).unsqueeze(0)
+            self.cached_masks[img_idx] = mask_tensor
+            self.cached_img_sizes[img_idx] = mask.shape
+            img_size = mask.shape
+
+            # Add the mask as first tensor, for patchifying
+            imgs.append(mask_tensor)
+            # Feature fetching
+            for feature, ppath in preprocessed_img_paths.items():
+                # Load from disk if available
+                if ppath.exists():
+                    img = torch.load(ppath, weights_only=False)
+                else:
+                    # Load image from raw
+                    img = load_image(self.images_dir / img_fnames[feature])
+                   # assert img.size == mask_size, \
+                   #     f'Image and mask {name} should be the same size, but are {img.size} and {mask_size}'
+                    img = self.preprocess(self.mask_values, img, self.scale, is_mask=False)
+                    # Save preprocessed tensors to disk
+                    ppath.parent.mkdir(parents=True, exist_ok=True)
+                    torch.save(img, ppath)
+    
+                imgs.append(img)
+
+            # Store in memory cache
+            img_stack_np = np.concatenate(imgs, axis=0)  # [C_total, H, W]
+            #stacked_img = torch.from_numpy(img_stack_np).to(torch.float16)
+            self.cached_imgs[img_idx] = img_stack_np
+
+        step = int(self.patch_size * (1-self.overlap))
+        img_stack_swapped = np.moveaxis(img_stack_np, 0, -1)
+        patches = patchify(img_stack_swapped, (self.patch_size, self.patch_size, len(self.features)*3+1), step=step)
+        #num_y, num_x = patches.shape[:2]
+        patches = patches.reshape(-1, self.patch_size, self.patch_size, len(self.features)*3+1)
+        patches = np.moveaxis(patches, -1, 1)
+
+        stacked_img_patches = torch.from_numpy(patches).to(torch.float32)
+        
+        return stacked_img_patches.contiguous(), img_size
+        
 
     def __getitem__(self, idx):
         img_idx = idx // self.patches_per_image
@@ -609,7 +718,10 @@ class GemsyDataset(Dataset):
             stacked_img = torch.from_numpy(img_stack_np).to(torch.float16)
             self.cached_imgs[img_idx] = stacked_img
 
-        defect_focus = np.random.rand() < self.defect_focus_rate
+        if self.validation:
+            defect_focus = False
+        else:
+            defect_focus = np.random.rand() < self.defect_focus_rate
         stacked_img_patches, mask_patch = self.extract_patches_fast(stacked_img, mask_tensor, defect_focus=defect_focus)
 
         if self.transform:

@@ -80,7 +80,16 @@ class LoggingCriterionModule():
         elif criterion_name == "BCELV+D":
             self.criterion = WeightedBinaryCrossEntropyLoss(**self.kwargs)
             self.get_loss = self.BCELV_D_loss
+        elif criterion_name == "BCE+D":
+            self.criterion = nn.BCELoss(**self.kwargs)
+            self.get_loss = self.BCE_D_loss
 
+    def BCE_D_loss(self, images, masks_pred, true_masks):
+        masks_pred = masks_pred.squeeze(1)
+        true_masks = true_masks.float()
+        loss = self.criterion(masks_pred, true_masks)
+        return loss
+    
     def BCELV_loss(self, images, masks_pred, true_masks):
         if images.shape[1] > 3:
             images = images[:, :3, :, :]
