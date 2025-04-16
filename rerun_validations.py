@@ -17,7 +17,7 @@ from torch.utils.data import DataLoader, random_split
 from tqdm import tqdm
 
 import wandb
-from evaluate import evaluate, evaluate_new
+from evaluate import evaluate, evaluate_direct_mask, evaluate_new
 from unet import UNet
 from unet.loss import LoggingCriterionModule, WeightedBinaryCrossEntropyLoss, WeightedBinaryCrossEntropyLossGlobal
 from unet.unet_model_og import UNet_og
@@ -165,12 +165,12 @@ def train_model(
                      f'\t{model.n_channels} input channels\n'
                      f'\t{model.n_classes} output channels (classes)\n'
                      f'\t{"Bilinear" if model.bilinear else "Transposed conv"} upscaling')
-        load = f"C:\\Users\\Admin\\Desktop\\Gemsy\\External\\Pytorch-UNet\\checkpoints\\checkpoint_epoch{epoch_idx}.pth"
-        state_dict = torch.load(load, map_location=device)
-        del state_dict['mask_values']
-        model.load_state_dict(state_dict)
-        logging.info(f'Model loaded from {load}')
-        model.to(device=device)
+        #load = f"C:\\Users\\Admin\\Desktop\\Gemsy\\External\\Pytorch-UNet\\checkpoints\\checkpoint_epoch{epoch_idx}.pth"
+       # state_dict = torch.load(load, map_location=device)
+      #  del state_dict['mask_values']
+      #  model.load_state_dict(state_dict)
+      #  logging.info(f'Model loaded from {load}')
+      #  model.to(device=device)
 
         optimizer = optim.SGD(model.parameters(),
                               lr=learning_rate, weight_decay=weight_decay, momentum=momentum)
@@ -202,7 +202,8 @@ def train_model(
         epoch_dice = 0
 
         # Evaluation round
-        val_score, val_recall_patch, val_accuracy_patch, val_defected_rate_patch, val_recall_px, val_accuracy_px, val_defected_rate_px, val_iou = evaluate_new(model, val_set, device, amp) # val_loader
+        #val_score, val_recall_patch, val_accuracy_patch, val_defected_rate_patch, val_recall_px, val_accuracy_px, val_defected_rate_px, val_iou = evaluate_new(model, val_set, device, amp) # evaluate_direct_mask val_loader
+        val_score, val_recall_patch, val_accuracy_patch, val_defected_rate_patch, val_recall_px, val_accuracy_px, val_defected_rate_px, val_iou = evaluate_direct_mask(model, val_set, device, amp)
         logging.info('Validation Dice score: {}'.format(val_score))
         try:
             experiment.log({
@@ -262,10 +263,10 @@ if __name__ == '__main__':
     # Change here to adapt to your data
     # n_channels=3 for RGB images
     # n_classes is the number of probabilities you want to get per pixel
-    features = ["opacity", "full", "dbscan"]
+    features = ["dbscantuned"] #["opacity", "full", "dbscan"]
     n_channels = len(features) * 3
     unet_type = "Custom" # OG
-    restart_run = "w1v5yru4"
+    restart_run = None #"w1v5yru4"
     max_epoch = 180
     try:
         train_model(

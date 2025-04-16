@@ -33,8 +33,8 @@ from torchvision.ops.focal_loss import sigmoid_focal_loss
 #dir_img = Path('./data/imgs/')
 dir_img = Path("C:\\Users\\Admin\\Desktop\\Gemsy\\Data\\processed\\.in\\features\\")
 #dir_mask = Path('./data/masks/')
-#dir_mask = Path("C:\\Users\\Admin\\Desktop\\Gemsy\\Data\\processed\\.in\\masks\\")
-dir_mask = Path("C:\\Users\\Admin\\Desktop\\Gemsy\\Data\\processed\\.in\\adjusted_masks\\")
+dir_mask = Path("C:\\Users\\Admin\\Desktop\\Gemsy\\Data\\processed\\.in\\masks\\")
+#dir_mask = Path("C:\\Users\\Admin\\Desktop\\Gemsy\\Data\\processed\\.in\\adjusted_masks\\")
 #dir_img = Path("C:\\Users\\Admin\\Desktop\\Gemsy\\Data\\processed\\.subsplit\\features\\")
 #dir_mask = Path("C:\\Users\\Admin\\Desktop\\Gemsy\\Data\\processed\\.subsplit\\masks\\")
 
@@ -68,11 +68,11 @@ def train_model(
         A.VerticalFlip(p=0.5),
         A.RandomRotate90(p=0.5),
         A.ShiftScaleRotate(shift_limit=0.1, scale_limit=0.1, rotate_limit=30, p=0.7),
-       # A.ElasticTransform(p=0.3),
-     #   A.RandomBrightnessContrast(p=0.3),
-        #A.GaussNoise(var_limit=(10.0, 50.0), p=0.3),
+     #   A.ElasticTransform(p=0.3),
+     #  A.RandomBrightnessContrast(p=0.3),
+      #  A.GaussNoise(var_limit=(10.0, 50.0), p=0.3),
      #   A.GridDistortion(p=0.2),
-      #  A.CoarseDropout(max_height=16, max_width=16, max_holes=8, fill_value=0, p=0.3),
+     #   A.CoarseDropout(max_height=16, max_width=16, max_holes=8, fill_value=0, p=0.3),
         ToTensorV2()
     ])
     
@@ -185,7 +185,7 @@ def train_model(
                  optimizer="SGD",
                  optimizer_params={"lr": learning_rate, "weight_decay": weight_decay, "momentum":momentum},
                  non_linear_function="ReLu",
-                 additional="Using Adjusted masks, variance applied to full",
+                 additional="Using OLD masks",
                  unet_type=unet_type,
                  criterion_patch_size=criterion_patch_size
                  )
@@ -398,10 +398,10 @@ def train_model(
 def get_args():
     parser = argparse.ArgumentParser(description='Train the UNet on images and target masks')
     parser.add_argument('--epochs', '-e', metavar='E', type=int, default=180, help='Number of epochs')
-    parser.add_argument('--batch-size', '-b', dest='batch_size', metavar='B', type=int, default=8, help='Batch size')
+    parser.add_argument('--batch-size', '-b', dest='batch_size', metavar='B', type=int, default=16, help='Batch size')
     parser.add_argument('--learning-rate', '-l', metavar='LR', type=float, default=0.03, #0.03, #5e-6, 0.03
                         help='Learning rate', dest='lr')
-    parser.add_argument('--weight_decay', '-wd', metavar='WD', type=float, default=0, #1e-8, 
+    parser.add_argument('--weight_decay', '-wd', metavar='WD', type=float, default=0,#1e-9, 
                         help='Weight Decay', dest='wd')
     parser.add_argument('--momentum', '-m', metavar='M', type=float, default=0.95,  #0.999
                         help='Momentum', dest='m')
@@ -428,14 +428,14 @@ if __name__ == '__main__':
     train_defect_focus_rate = 0.7
     patch_size = 512
     patches_per_image = 300 # 300
-    criterion_patch_size = 45
+    criterion_patch_size = 31
 
     # Change here to adapt to your data
     # n_channels=3 for RGB images
     # n_classes is the number of probabilities you want to get per pixel
-    features = ["full", "dbscantuned", "opacity"]
+    features = ["gt"] #["full", "dbscantuned", "opacity"]
     n_channels = len(features) * 3
-    unet_type = "OG"
+    unet_type = "Custom"
 
     if unet_type == "OG":
         model = UNet_og(n_channels=n_channels, n_classes=args.classes, bilinear=args.bilinear)
