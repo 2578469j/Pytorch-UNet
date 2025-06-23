@@ -61,18 +61,19 @@ def train_model(
         restart_run = None,
         start_epoch = None,
         criterion_patch_size = 51,
-        unet_type = "OG"
+        unet_type = "OG",
+        target_size = None,
 ):
     training_augmentation = A.Compose([
         A.HorizontalFlip(p=0.5),
         A.VerticalFlip(p=0.5),
         A.RandomRotate90(p=0.5),
         A.ShiftScaleRotate(shift_limit=0.1, scale_limit=0.1, rotate_limit=30, p=0.7),
-     #   A.ElasticTransform(p=0.3),
-     #  A.RandomBrightnessContrast(p=0.3),
-      #  A.GaussNoise(var_limit=(10.0, 50.0), p=0.3),
-     #   A.GridDistortion(p=0.2),
-     #   A.CoarseDropout(max_height=16, max_width=16, max_holes=8, fill_value=0, p=0.3),
+        A.ElasticTransform(p=0.3),
+        A.RandomBrightnessContrast(p=0.3),
+        #A.GaussNoise(var_limit=(10.0, 50.0), p=0.3),
+       # A.GridDistortion(p=0.2),
+       # A.CoarseDropout(max_height=16, max_width=16, max_holes=8, fill_value=0, p=0.3),
         ToTensorV2()
     ])
     
@@ -108,8 +109,8 @@ def train_model(
     train_defect_focus_rate = train_defect_focus_rate
 
     train_ids, val_ids = random_split(all_ids, [n_train, n_val], generator=torch.Generator().manual_seed(1))
-    train_set = GemsyDataset(dir_img, dir_mask, patch_size, patches_per_image, img_scale, features=features, transform=training_augmentation, ids=train_ids, defect_focus_rate=train_defect_focus_rate)
-    val_set = GemsyDataset(dir_img, dir_mask, patch_size, patches_per_image*2, img_scale, features=features, transform=None, ids=val_ids, validation=True)
+    train_set = GemsyDataset(dir_img, dir_mask, patch_size, patches_per_image, img_scale, features=features, transform=training_augmentation, ids=train_ids, defect_focus_rate=train_defect_focus_rate, target_size=target_size)
+    val_set = GemsyDataset(dir_img, dir_mask, patch_size, patches_per_image*2, img_scale, features=features, transform=None, ids=val_ids, validation=True, target_size=target_size)
 
     n_val = n_val * patches_per_image
     n_train = n_train * patches_per_image
@@ -187,7 +188,8 @@ def train_model(
                  non_linear_function="ReLu",
                  additional="Using OLD masks",
                  unet_type=unet_type,
-                 criterion_patch_size=criterion_patch_size
+                 criterion_patch_size=criterion_patch_size,
+                 target_size=target_size
                  )
         )
 
@@ -398,7 +400,7 @@ def train_model(
 def get_args():
     parser = argparse.ArgumentParser(description='Train the UNet on images and target masks')
     parser.add_argument('--epochs', '-e', metavar='E', type=int, default=180, help='Number of epochs')
-    parser.add_argument('--batch-size', '-b', dest='batch_size', metavar='B', type=int, default=16, help='Batch size')
+    parser.add_argument('--batch-size', '-b', dest='batch_size', metavar='B', type=int, default=24, help='Batch size')
     parser.add_argument('--learning-rate', '-l', metavar='LR', type=float, default=0.03, #0.03, #5e-6, 0.03
                         help='Learning rate', dest='lr')
     parser.add_argument('--weight_decay', '-wd', metavar='WD', type=float, default=0,#1e-9, 
@@ -429,6 +431,7 @@ if __name__ == '__main__':
     patch_size = 512
     patches_per_image = 300 # 300
     criterion_patch_size = 31
+    target_size = (6000, 4000) #(4500, 3000)
 
     # Change here to adapt to your data
     # n_channels=3 for RGB images
@@ -485,6 +488,7 @@ if __name__ == '__main__':
             patch_size = patch_size,
             patches_per_image = patches_per_image,
             criterion_patch_size = criterion_patch_size,
+            target_size = target_size
         )
     except torch.cuda.OutOfMemoryError:
         logging.error('Detected OutOfMemoryError! '

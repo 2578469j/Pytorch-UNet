@@ -3,7 +3,7 @@ import time
 import numpy as np
 from patchify import patchify
 import torch
-from PIL import Image
+from PIL import Image, ImageOps
 from functools import lru_cache
 from functools import partial
 from itertools import repeat
@@ -23,7 +23,8 @@ def load_image(filename):
     elif ext in ['.pt', '.pth']:
         return Image.fromarray(torch.load(filename).numpy())
     else:
-        im = Image.open(filename).convert("RGB")
+        im = Image.open(filename)
+        im = ImageOps.exif_transpose(im).convert("RGB")
         #print(im.size)
         return im #Image.open(filename)
 
@@ -53,7 +54,9 @@ class GemsySplitLoader():
             "dbscan": "dbscan.png",
             "gt": "gt.png",
             "gt_mask": "gt_mask.png",
-            "dbscantuned": "dbscantuned.png"
+            "dbscantuned": "dbscantuned.png",
+            "front": "front.JPG",
+            "front_gt": "front_annotated.png"
         }
 
         self.pallete = {
@@ -92,6 +95,21 @@ class GemsySplitLoader():
 
             model_split.append(split)
             self.model_splits[id] = model_split
+
+    def get_ids_with_feature(self, feature):
+        if feature not in self.features.keys():
+            return []
+        
+        ids = []
+        for id, _ in self.model_splits.items():
+            if id in self.test_ids:
+                pass
+            try:
+                if self.features[feature] in listdir(self.images_dir / id):
+                    ids.append(f"{id}")
+            except Exception as e:
+                pass
+        return ids
 
     def get_ids(self):
         ids = []
@@ -444,10 +462,11 @@ class GemsyPatchDataset(Dataset):
         }
     
 class GemsyDataset(Dataset):
-    def __init__(self, images_dir:str, mask_dir:str, patch_size=512, patches_per_image=300, scale=1.0, features = ['gt'], defect_focus_rate = 0.7, transform=None, ids=None, validation=False):
+    def __init__(self, images_dir:str, mask_dir:str, patch_size=512, patches_per_image=300, scale=1.0, features = ['gt'], defect_focus_rate = 0.7, transform=None, ids=None, validation=False, target_size=None):
         self.images_dir = Path(images_dir)
         self.mask_dir = Path(mask_dir)
         self.scale = scale
+        self.target_size = target_size
         self.transform = transform
         self.patch_size = patch_size
         self.patches_per_image = patches_per_image
@@ -474,9 +493,15 @@ class GemsyDataset(Dataset):
             return len(self.ids) * self.patches_per_image
 
     @staticmethod
-    def preprocess(mask_values, pil_img, scale, is_mask):
-        w, h = pil_img.size
-        newW, newH = int(scale * w), int(scale * h)
+    def preprocess(mask_values, pil_img, scale, is_mask, target = None):
+        w, h = pil_img.size # 3000 4500
+        if target:
+            if w > h:
+                newW, newH = target
+            else:
+                newH, newW = target
+        else:
+            newW, newH = int(scale * w), int(scale * h)
         assert newW > 0 and newH > 0, 'Scale is too small, resized images would have no pixel'
         if w != newW or h != newH:
             pil_img = pil_img.resize((newW, newH), resample=Image.NEAREST if is_mask else Image.BICUBIC)
@@ -575,7 +600,7 @@ class GemsyDataset(Dataset):
             img = load_image(self.images_dir / img_fnames[feature])
             if i == 0:
                 og_img = img
-            img = self.preprocess(None, img, self.scale, is_mask=False)
+            img = self.preprocess(None, img, self.scale, is_mask=False, target=self.target_size)
             size = img.shape
 
             imgs.append(img)
@@ -614,7 +639,7 @@ class GemsyDataset(Dataset):
                 mask = torch.load(preprocessed_mask_path, weights_only=False)
             else:
                 mask = load_image(self.mask_dir / mask_fname)
-                mask = self.preprocess(self.mask_values, mask, self.scale, is_mask=True)
+                mask = self.preprocess(self.mask_values, mask, self.scale, is_mask=True, target=self.target_size)
                 # Save preprocessed tensors to disk
                 preprocessed_mask_path.parent.mkdir(parents=True, exist_ok=True)
                 torch.save(mask, preprocessed_mask_path)
@@ -637,7 +662,7 @@ class GemsyDataset(Dataset):
                     img = load_image(self.images_dir / img_fnames[feature])
                    # assert img.size == mask_size, \
                    #     f'Image and mask {name} should be the same size, but are {img.size} and {mask_size}'
-                    img = self.preprocess(self.mask_values, img, self.scale, is_mask=False)
+                    img = self.preprocess(self.mask_values, img, self.scale, is_mask=False, target=self.target_size)
                     # Save preprocessed tensors to disk
                     ppath.parent.mkdir(parents=True, exist_ok=True)
                     torch.save(img, ppath)
@@ -687,8 +712,9 @@ class GemsyDataset(Dataset):
                 mask = torch.load(preprocessed_mask_path, weights_only=False)
             else:
                 mask = load_image(self.mask_dir / mask_fname)
-                mask = self.preprocess(self.mask_values, mask, self.scale, is_mask=True)
-
+                # 4000 6000
+                mask = self.preprocess(self.mask_values, mask, self.scale, is_mask=True, target=self.target_size)
+                # 4000 6000
                 # Save preprocessed tensors to disk
                 preprocessed_mask_path.parent.mkdir(parents=True, exist_ok=True)
                 torch.save(mask, preprocessed_mask_path)
@@ -705,9 +731,10 @@ class GemsyDataset(Dataset):
                 else:
                     # Load image from raw
                     img = load_image(self.images_dir / img_fnames[feature])
+                   # 6000 4000
                    # assert img.size == mask_size, \
                    #     f'Image and mask {name} should be the same size, but are {img.size} and {mask_size}'
-                    img = self.preprocess(self.mask_values, img, self.scale, is_mask=False)
+                    img = self.preprocess(self.mask_values, img, self.scale, is_mask=False, target=self.target_size)
                     # Save preprocessed tensors to disk
                     ppath.parent.mkdir(parents=True, exist_ok=True)
                     torch.save(img, ppath)
@@ -722,13 +749,16 @@ class GemsyDataset(Dataset):
             defect_focus = False
         else:
             defect_focus = np.random.rand() < self.defect_focus_rate
+
+        # Check that mask and img is aligned
+        assert stacked_img.shape[1:] == mask_tensor.shape
+
         stacked_img_patches, mask_patch = self.extract_patches_fast(stacked_img, mask_tensor, defect_focus=defect_focus)
 
         if self.transform:
             # Albumentations expects HWC
             stacked_img_patches = stacked_img_patches.permute(1, 2, 0).cpu().numpy().astype(np.float32)
             mask_patch = mask_patch.cpu().numpy().astype(np.uint8)
-            
             augmented = self.transform(image=stacked_img_patches, mask=mask_patch)
              #
             img_patch = augmented['image'].float().contiguous() #6 512 512

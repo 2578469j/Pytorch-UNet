@@ -18,7 +18,9 @@ from unet import UNet
 from utils.utils import plot_img_and_mask, plot_img_and_mask_binary
 
 dir_img = Path("C:\\Users\\Admin\\Desktop\\Gemsy\\Data\\processed\\.in\\features\\")
+dir_img = Path("C:\\Users\\Admin\\Desktop\\Gemsy\\Data\\processed\\.pred\\features\\")
 dir_mask = Path("C:\\Users\\Admin\\Desktop\\Gemsy\\Data\\processed\\.in\\masks\\")
+dir_mask = Path("C:\\Users\\Admin\\Desktop\\Gemsy\\Data\\processed\\.pred\\masks\\")
 patch_size = 512
 patches_per_image = 350
 img_scale = 0.5
@@ -62,9 +64,10 @@ def predict_img(net,
                 scale_factor=1,
                 out_threshold=0.5,
                 features=['gt'],
-                overlap = 0):
+                overlap = 0,
+                target_size = None):
     net.eval()
-    gset = GemsyDataset(dir_img, dir_mask, patch_size, patches_per_image, img_scale, features=features)
+    gset = GemsyDataset(dir_img, dir_mask, patch_size, patches_per_image, img_scale, features=features, target_size=target_size)
     stacked_img, og_size, og_img, mask_gt = gset.get_prediction_data_predict(full_img, overlap=overlap)
     #img = torch.from_numpy(GemsyDataset.preprocess(None, full_img, scale_factor, is_mask=False))
    # stacked_img = stacked_img.unsqueeze(0)
@@ -171,6 +174,9 @@ run_ids={
     "7cjp6k59": "chocolate-blaze-291",
     "0vqyi0s2": "polar-breeze-292",
     "iwk1bsaf": "clean-dream-293",
+    "k3gqimow": "olive-planet-303",
+    "c81vfcbd": "twilight-glade-307",
+    "08054sot": "driven-voice-309"
 }
 
 # 70 epoch
@@ -228,13 +234,25 @@ runs={
     "cerulean-glade-289": {"type":"Custom", "features":["full","dbscantuned","opacity"]},
 }
 
+runs={
+    "olive-planet-303": {"type":"Custom", "features":["gt"]},
+}
+
+runs={
+    "twilight-glade-307": {"type":"Custom", "features":["gt"]},
+}
+
+runs={
+    "driven-voice-309": {"type":"Custom", "features":["gt"]},
+}
 
 if __name__ == '__main__':
     args = get_args()
     logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 
     model_path = "C:\\Users\\Admin\\Desktop\\Gemsy\\External\\Pytorch-UNet\\checkpoints"
-    ckpt = 60
+    ckpt = 180 #60
+    target_size = (6000, 4000) #(4500, 3000)
 
     mask_threshold = None
 
@@ -250,7 +268,35 @@ if __name__ == '__main__':
 
             full_model = f"{model_path}\\{run_name}\\checkpoint_epoch{ckpt}.pth"
        #     idxs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 20, 21, 22]
-            idxs = [8, 10, 15, 20]
+          #  idxs = [8, 10, 15, 20]
+            idxs = ['1',
+                '10',
+                '11',
+                '12',
+                '14',
+                '15',
+                '2',
+                '20',
+                '21',
+                '22',
+                '3',
+                '4',
+                '5',
+                '6',
+                '7',
+                '8',
+                '9',
+                'e-10',
+                'e-11',
+                'e-12',
+                'e-13',
+                'e-14',
+                'e-16',
+                'e-3',
+                'e-6',
+                'e-8',
+                'e-9']
+            idxs= ['e-10', 'e-11', 'e-12', 'e-13', 'e-14', 'e-15', 'e-16', 'e-17', 'e-18', 'e-19', 'e-20', 'e-21', 'e-22', 'e-23', 'e-24', 'e-25', 'e-26', 'e-27', 'e-28', 'e-29', 'e-3', 'e-30', 'e-31', 'e-32', 'e-33', 'e-34', 'e-35', 'e-36', 'e-37', 'e-38', 'e-39', 'e-4', 'e-40', 'e-5', 'e-6', 'e-7', 'e-8', 'e-9']
             args.input = [f"{idx}" for idx in idxs]
             in_files = args.input
             out_files = get_output_filenames(args, f"{run_name}_{ckpt}")
@@ -284,7 +330,8 @@ if __name__ == '__main__':
                                    scale_factor=args.scale,
                                    out_threshold=mask_threshold,#args.mask_threshold,
                                    device=device,
-                                   features=features)
+                                   features=features,
+                                   target_size=target_size)
 
                 if not args.no_save:
                     out_filename = out_files[i]
